@@ -145,9 +145,13 @@ class MeleeAction(ActionWithDirection):
         if not target:
             raise exceptions.Impossible("Nothing to attack.")
         
+        if self.entity is self.engine.player:
+            attack_color = color.player_atk
+        else:
+            attack_color = color.enemy_atk
+        attack_desc = f"{self.entity.name.capitalize()} attacks {target.name}"
         attack_roll = random.randint(1,20)
         damage = 0
-        print(self.entity.fighter.attack_bonus)
         if attack_roll+self.entity.fighter.attack > target.fighter.armor:
             damage = self.entity.fighter.power - target.fighter.defense
             if damage > 0:
@@ -156,11 +160,6 @@ class MeleeAction(ActionWithDirection):
         else:
             self.engine.message_log.add_message(f"{attack_desc} misses!", attack_color)
 
-        attack_desc = f"{self.entity.name.capitalize()} attacks {target.name}"
-        if self.entity is self.engine.player:
-            attack_color = color.player_atk
-        else:
-            attack_color = color.enemy_atk
 
         if damage > 0:
             target.fighter.hp -= damage

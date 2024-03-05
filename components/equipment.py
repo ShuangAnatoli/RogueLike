@@ -24,10 +24,10 @@ class Equipment(BaseComponent):
         bonus = 0
 
         if self.weapon is not None and self.weapon.equippable is not None:
-            bonus += self.weapon.equippable.armor_bonus()
+            bonus += self.weapon.equippable.armor_bonus
 
         if self.armor is not None and self.armor.equippable is not None:
-            bonus += self.armor.equippable.armor_bonus()
+            bonus += self.armor.equippable.armor_bonus
 
         return bonus
 
@@ -37,10 +37,10 @@ class Equipment(BaseComponent):
         bonus = 0
 
         if self.weapon is not None and self.weapon.equippable is not None:
-            bonus += self.weapon.equippable.defense_bonus()
+            bonus += self.weapon.equippable.defense_bonus
 
         if self.armor is not None and self.armor.equippable is not None:
-            bonus += self.armor.equippable.defense_bonus()
+            bonus += self.armor.equippable.defense_bonus
 
         return bonus
 
@@ -49,10 +49,10 @@ class Equipment(BaseComponent):
         bonus = 0
 
         if self.weapon is not None and self.weapon.equippable is not None:
-            bonus += self.weapon.equippable.power_bonus()
+            bonus += self.weapon.equippable.power_bonus
 
         if self.armor is not None and self.armor.equippable is not None:
-            bonus += self.armor.equippable.power_bonus()
+            bonus += self.armor.equippable.power_bonus
 
         return bonus
     
@@ -61,10 +61,10 @@ class Equipment(BaseComponent):
         bonus = 0
 
         if self.weapon is not None and self.weapon.equippable is not None:
-            bonus += self.weapon.equippable.attack_bonus()
+            bonus += self.weapon.equippable.attack_bonus
 
         if self.armor is not None and self.armor.equippable is not None:
-            bonus += self.armor.equippable.attack_bonus()
+            bonus += self.armor.equippable.attack_bonus
 
         return bonus
 
