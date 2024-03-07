@@ -1,39 +1,3 @@
-from __future__ import annotations
-
-from typing import TYPE_CHECKING
-
-import sys
-sys.path.append('../tcod_tutorial_v2')
-from components.base_component import BaseComponent
-from equipment_types import EquipmentType
-
-if TYPE_CHECKING:
-    from entity import Item
-
-
-class Equippable(BaseComponent):
-    parent: Item
-
-    def __init__(
-        self,
-        equipment_type: EquipmentType,
-        power_bonus: int = 0,
-        defense_bonus: int = 0,
-        attack_bonus: int = 0,
-        armor_bonus: int = 0,
-		recipe = ["unobtanium"],
-		craft_level = 5
-    ):
-        self.equipment_type = equipment_type
-
-        self.power_bonus = power_bonus
-        self.attack_bonus = attack_bonus
-        self.armor_bonus = armor_bonus
-        self.defense_bonus = defense_bonus
-		self.craft_level = craft_level
-
-		self.recipe = recipe
-
 class pair_of_2-by-arm_guards(Equippable): 
 	def __init__(self) -> None:
 		super().__init__(equipment_type=EquipmentType.Armor, 

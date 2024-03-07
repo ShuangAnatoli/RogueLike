@@ -2,7 +2,6 @@ import json
 import pandas as pd
 import numpy as np
 import math
-from diceconvert import diceconvert
 import string
 
 targets_armor_list = [["arms_armor", "arms"], ["boots", "feet"], ["gloves", "hands"], ["helmets", "head"], ["legs_armor", "legs"], ["shields", "other"], ["suits_protection", "suit"], ["torso_armor", "torso"]]
@@ -118,7 +117,7 @@ for armor in targets_armor_list:
             armor_item_df.at[index,"armor"] = round((1+protection_final)*(20+mitigation_final)/8)
 
 
-    big_armor_df = big_armor_df._append(armor_item_df[["name", "armor", "mitigation"]].dropna())
+    big_armor_df = big_armor_df._append(armor_item_df[["name", "armor", "mitigation", "recipe", "craft_level"]].dropna())
 
         
 big_melee_df = pd.DataFrame({'item_name' : []})
@@ -192,8 +191,7 @@ for melee in targets_melee_list:
 
             #TODO: base damage on bash/stab/cut
             #Dismemberment has different forms: broken/bleeding/removed
-    print(melee_item_df)
-    big_melee_df = big_melee_df._append(melee_item_df[["name", "attack", "power"]])
+    big_melee_df = big_melee_df._append(melee_item_df[["name", "attack", "power", "recipe", "craft_level"]]).dropna()
 
 
 # big_ranged_df = pd.DataFrame({'item_name' : []})
@@ -241,7 +239,12 @@ with open("final_path.txt", "w") as f:
             except:
                 f.write(f"class {melee_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
             f.write(f"\tdef __init__(self) -> None:\n")
-            f.write(f"\t\tsuper().__init__(equipment_type=EquipmentType.Weapon, power_bonus={int(melee_item['power'])}, attack_bonus = {int(melee_item['attack'])}) \n\n")
+            f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Weapon, 
+                    power_bonus={int(melee_item['power'])}, 
+                    attack_bonus = {int(melee_item['attack'])},
+                    craft_level = {int(melee_item['craft_level'])},
+                    recipe = [{', '.join(f"[{item[0][0]}, {str(item[0][1])}]" for item in melee_item['recipe'])})]
+                    \n\n""")
     # for ranged_item in big_ranged_df.iterrows():
     #     f.write(f"class {ranged_item['name']['str']}Equippable \n")
     #     f.write(f"\tdef __init__(self) -> None:\n")
@@ -258,9 +261,14 @@ with open("final_path.txt", "w") as f:
             except:
                 f.write(f"class {armor_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
             f.write(f"\tdef __init__(self) -> None:\n")
-            f.write(f"\t\tsuper().__init__(equipment_type=EquipmentType.Armor, defense_bonus={int(armor_item['mitigation'])}, armor_bonus = {int(armor_item['armor'])})\n\n")
-
-
+            for item in armor_item['recipe']:
+                print("PRINTING HERE")
+                print(', '.join([f"{it}" for it in item]))
+            f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Armor, 
+                    defense_bonus = {int(armor_item['mitigation'])}, 
+                    armor_bonus = {int(armor_item['armor'])},
+                    craft_level = {int(armor_item['craft_level'])},
+                    recipe = [{', '.join(f"{item}"[1:-1] for item in armor_item['recipe'])}])\n\n""")
 
                 
 # class Sword(Equippable):
