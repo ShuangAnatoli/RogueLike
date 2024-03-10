@@ -2,13 +2,15 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Optional
 import sys
+
 sys.path.append('../tcod_tutorial_v2')
 
 from exceptions import Impossible
+from components.ai import ConfusedEnemy
 from input_handlers import ActionOrHandler, AreaRangedAttackHandler, SingleRangedAttackHandler
+
 import actions
 import color
-import components.ai
 import components.inventory
 from components.base_component import BaseComponent
 
@@ -21,9 +23,9 @@ class Consumable(BaseComponent):
 
     def get_action(self, consumer: Actor) -> Optional[ActionOrHandler]:
         """Try to return the action for this item."""
-        return tcod_tutorial_v2.actions.ItemAction(consumer, self.parent)
+        return actions.ItemAction(consumer, self.parent)
 
-    def activate(self, action: tcod_tutorial_v2.actions.ItemAction) -> None:
+    def activate(self, action: actions.ItemAction) -> None:
         """Invoke this items ability.
 
         `action` is the context for this activation.
@@ -38,12 +40,14 @@ class Consumable(BaseComponent):
             inventory.items.remove(entity)
 
 
+
+
 class ConfusionConsumable(Consumable):
     def __init__(self, number_of_turns: int):
         self.number_of_turns = number_of_turns
 
     def get_action(self, consumer: Actor) -> SingleRangedAttackHandler:
-        self.engine.message_log.add_message("Select a target location.", tcod_tutorial_v2.color.needs_target)
+        self.engine.message_log.add_message("Select a target location.", color.needs_target)
         return SingleRangedAttackHandler(
             self.engine,
             callback=lambda xy: actions.ItemAction(consumer, self.parent, xy),
@@ -64,7 +68,7 @@ class ConfusionConsumable(Consumable):
             f"The eyes of the {target.name} look vacant, as it starts to stumble around!",
             color.status_effect_applied,
         )
-        target.ai = ai.ConfusedEnemy(
+        target.ai = ConfusedEnemy(
             entity=target,
             previous_ai=target.ai,
             turns_remaining=self.number_of_turns,
