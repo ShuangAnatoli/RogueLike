@@ -149,7 +149,7 @@ class pair_of_cord_sandals(Equippable):
 					defense_bonus = 1,
 					armor_bonus = 4,
 					craft_level = 2,
-					recipe = [['filament', 140, 'LIST']])
+					recipe = [['filament', 140]])
 
 class pair_of_boots(Equippable): 
 	def __init__(self) -> None:

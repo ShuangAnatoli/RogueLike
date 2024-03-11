@@ -98,7 +98,7 @@ class Actor(Entity):
         equipment: Equipment,
         fighter: Fighter,
         inventory: Inventory,
-        level: Level,
+        level: Level
     ):
         super().__init__(
             x=x,

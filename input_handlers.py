@@ -2,20 +2,24 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Callable, Optional, Tuple, Union
 import os
-import sys
-
 import tcod
 
-import input_handlers
-import setup_game
 from actions import Action, BumpAction, PickupAction, WaitAction
 import actions
 import color
 import exceptions
+import random
+import sys
+from pathlib import Path
+
+# As PosixPath
+sys.path.append(str(Path(__file__).parent / "components"))
+import equippable
 
 if TYPE_CHECKING:
     from engine import Engine
     from entity import Item
+
 
 MOVE_KEYS = {
     # Arrow keys.
@@ -108,6 +112,7 @@ class PopupMessage(BaseEventHandler):
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[BaseEventHandler]:
         """Any key returns to the parent handler."""
         return self.parent
+
 
 
 class EventHandler(BaseEventHandler):
@@ -469,10 +474,10 @@ class AreaRangedAttackHandler(SelectIndexHandler):
     """Handles targeting an area within a given radius. Any entity within the area will be affected."""
 
     def __init__(
-            self,
-            engine: Engine,
-            radius: int,
-            callback: Callable[[Tuple[int, int]], Optional[Action]],
+        self,
+        engine: Engine,
+        radius: int,
+        callback: Callable[[Tuple[int, int]], Optional[Action]],
     ):
         super().__init__(engine)
 
@@ -499,35 +504,129 @@ class AreaRangedAttackHandler(SelectIndexHandler):
         return self.callback((x, y))
 
 
+class DowntimeMenuHandler(AskUserEventHandler):
+    """This handler lets the user select an item.
+
+    What happens then depends on the subclass.
+    """
+
+    TITLE = "Downtime (there would be crafting but it's midnight before midterms)"
+
+    
+    def on_render(self, console: tcod.Console) -> None:
+        """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
+        """
+        super().on_render(console)
+        
+
+        height = 18
+        x = 0
+        y = 0
+
+        width = 70
+
+        console.draw_frame(
+            x=x,
+            y=y,
+            width=width,
+            height=height,
+            clear=True,
+            fg=(255, 255, 255),
+            bg=(0, 0, 0),
+        )
+        console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
+        locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
+                     "(c) Woodlands: Hunt - hide and chitin", "(d) Woodlands: Gather - natural materials",
+                    "(e) Scrapyard: Scavenge - scrap", "(f) Scrapyard: Labor - d6 x strength gold", 
+                     "(g) Market: Shop - spend 20 gold, many random mats", "(h) Market: Steal - dex based random"]
+        
+        for i, item in enumerate(locations):
+            console.print(x + 1, y + i + 1, item)
+
+    def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
+        materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
+                  'steel_lump', 'steel_chunk', 'copper_scrap_equivalent', 'steel_tiny', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
+                  'string_36', 'string_6', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
+                  'string_36', 'string_6', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
+                  '2x4', 'rag', 'string_36', 'string_6', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+
+
+        locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
+                     "(c) Woodlands: Hunt - hide and chitin", "(d) Woodlands: Gather - natural materials",
+                    "(e) Scrapyard: Scavenge - scrap", "(f) Scrapyard: Labor - d6 x strength gold", 
+                     "(g) Market: Shop - spend 20 gold, many random mats", "(h) Market: Steal - dex based random"]
+        
+        player = self.engine.player
+        key = event.sym
+        index = key - tcod.event.K_a
+        mat_mult = 5
+        if 0 <= index <= 15:
+            mat_list = materials_list
+            if index == 0: 
+                mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
+            elif index == 1: 
+                mat_list = ['steel_lump', 'steel_chunk', 'copper_scrap_equivalent', 'steel_tiny', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
+                mat_mult = 3
+                gold_tally = 0
+                for i in range(player.fighter.base_defense):
+                    earnings = random.randint(1,4)
+                    player.inventory.gold += earnings
+                    gold_tally += earnings
+                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
+            elif index == 2: 
+                mat_list = ['string_36', 'string_6', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
+            elif index == 3: 
+                mat_list = ['string_36', 'string_6', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
+            elif index == 4: 
+                mat_list = ['2x4', 'rag', 'string_36', 'string_6', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+            elif index == 5:
+                gold_tally = 0
+                for i in range(player.fighter.base_power):
+                    earnings = random.randint(1,6)
+                    player.inventory.gold += earnings
+                    gold_tally += earnings
+                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
+            elif index == 6:
+                if player.inventory.gold > 20:
+                    self.engine.message_log.add_message("Not enough gold.", color.invalid)
+                    return None
+                else:
+                    player.inventory.gold -= 20
+                    mat_mult = 10
+            elif index == 6:
+                mat_mult = 0
+                for i in range(player.fighter.base_defense):
+                    mat_mult += random.randint(1,4)
+            mat_string = ""
+            for i in range(mat_mult):
+                mat_found = random.randint(0,len(mat_list)-1)
+                for j, mat in enumerate(materials_list):
+                    if mat_list[mat_found] == mat:
+                        player.inventory.materials[j] += 1
+                if i == mat_mult-1:
+                    mat_string += f"and {mat_list[mat_found]}."
+                else:
+                    mat_string += f"{mat_list[mat_found]} ,"
+            self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
+
+            return actions.TakeStairsAction(player)
+        return super().ev_keydown(event)
+
+    def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
+        """Called when the user selects a valid item."""
+        raise NotImplementedError()
+
 class MainGameEventHandler(EventHandler):
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
         action: Optional[Action] = None
+
         key = event.sym
         modifier = event.mod
+
         player = self.engine.player
+
         if key == tcod.event.K_PERIOD and modifier & (tcod.event.KMOD_LSHIFT | tcod.event.KMOD_RSHIFT):
-            screen_width, screen_height = 80, 50
-            tileset = tcod.tileset.load_tilesheet("data/dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD)
-            handler: input_handlers.BaseEventHandler = setup_game.LevelLoad()
-            with tcod.context.new(
-                    columns=screen_width,
-                    rows=screen_height,
-                    tileset=tileset,
-                    title="Yet Another Roguelike Tutorial",
-                    vsync=True,
-            ) as context:
-                root_console = tcod.Console(screen_width, screen_height, order="F")
-
-                root_console.clear()
-                handler.on_render(console=root_console)
-                context.present(root_console)
-
-                for event in tcod.event.wait():
-                    context.convert_event(event)
-                    handler = handler.handle_events(event)
-
-
-            return actions.TakeStairsAction(player)
+            return DowntimeMenuHandler(self.engine)
 
         if key in MOVE_KEYS:
             dx, dy = MOVE_KEYS[key]

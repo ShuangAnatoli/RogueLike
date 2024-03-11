@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import sys
-sys.path.append('../tcod_tutorial_v2')
+sys.path.append('../RogueLike')
 from typing import TYPE_CHECKING, List
 
 from components.base_component import BaseComponent
@@ -9,13 +9,14 @@ from components.base_component import BaseComponent
 if TYPE_CHECKING:
     from entity import Actor, Item
 
-
 class Inventory(BaseComponent):
     parent: Actor
 
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.items: List[Item] = []
+        self.materials = [0 for i in range(72)]
+        self.gold = 0
 
     def drop(self, item: Item) -> None:
         """
