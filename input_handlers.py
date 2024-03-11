@@ -544,7 +544,7 @@ class DowntimeMenuHandler(AskUserEventHandler):
             console.print(x + 1, y + i + 1, item)
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
-        materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'wetsuit_booties', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
+        materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
                   'steel_lump', 'steel_chunk', 'copper_scrap_equivalent', 'steel_tiny', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
                   'string_36', 'string_6', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
                   'string_36', 'string_6', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
@@ -563,7 +563,7 @@ class DowntimeMenuHandler(AskUserEventHandler):
         if 0 <= index <= 15:
             mat_list = materials_list
             if index == 0: 
-                mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'wetsuit_booties', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
+                mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
             elif index == 1: 
                 mat_list = ['steel_lump', 'steel_chunk', 'copper_scrap_equivalent', 'steel_tiny', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
                 mat_mult = 3
