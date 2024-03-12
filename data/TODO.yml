@@ -1,5 +1,5 @@
 TODO:
-- Create stats
+- Create stats:
   - Add to the Fighter class that we have some base stats
   - Change references to Base.Power and Base.Defense to this
     - Strength: Power
@@ -10,17 +10,34 @@ TODO:
   - When we kill stuff, give us xp based on the gear we have (so go into the Level file/class and add the counter for each; 
     whenever you would gain xp, instead check gear and add)
   - I'll make gear lists (these items are "finesse", this armor is "heavy", etc, that will determine the stat)
-- Prettier menus?
+  - Skills:
+    - Instead of just str/dex/con we want all the skills
+    - Make downtime actions roll skills
+    - Print out d20 rolls maybe
+- Menus:
   - Currently we're using purely the builtins of TCOD
   - If we can display pretty graphics around the TCOD text that's fine
   - Also needed for cutscenes
-- Random monster generation
-  - This is a full overhaul so I'll get to it eventually lol
-  - Generate a random set of equipment, levels, xp, etc to simulate a player leveling
-- Loot drops
+
+- Loot drops:
   - Monsters should drop loot
     - Materials should be super easy; just player.inventory.materials[i] += whatever
     - Maybe print the gained material
     - items are harder
     - directly adding to inventory maybe?
-- 
+
+- Fill out values:
+  - Add RNG rolls to attacks that actually matter
+  - Crafting should make sense; edit the values
+  - Weapons should have dice instead of flat damage
+  - Armor should have more interesting values
+  - (low prio) Elemental damage
+
+- New Systems:
+  - Create crafting
+  - Events
+  - Dismemberment
+    - Cutscene dismemberment - pops up (this will have placeholder art until we either get serious and/or hire an animator)
+  - Random monster generation:
+    - This is a full overhaul so I'll get to it eventually lol
+    - Generate a random set of equipment, levels, xp, etc to simulate a player leveling
