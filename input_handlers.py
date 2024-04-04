@@ -508,22 +508,52 @@ class AreaRangedAttackHandler(SelectIndexHandler):
 
 class CraftingMenuHandler(AskUserEventHandler):
 
-
-
-    armorData = pd.read_csv("armor.csv")
-    weaponData = pd.read_csv("weapon.csv")
-
-    
-    
-    TITLE = ""
     def __init__(self, engine: Engine, time_left = 112, location = 4):
         self.time_left = time_left
         self.location = location
         self.engine = engine
+
+
+        self.materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
+                  'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
+                  'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
+                  'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
+                  '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+
+
+        
+    TITLE = ""
     
     def on_render(self, console: tcod.Console) -> None:
         """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
         """
+
+        player = self.engine.player
+        
+
+        armorData = pd.read_csv("armor.csv")
+        weaponData = pd.read_csv("weapon.csv")
+
+        valid_armor_names = []
+        for row in armorData.rows:
+            craftable = True
+            recipe = row["recipe"]
+            for mat_options in recipe:
+                mat_satisfied = False
+                for mat_tuple in mat_options:
+                    material = mat_tuple[0]
+                    mat_quantity = mat_tuple[1]
+                    for i, mat_name in enumerate(self.materials_list):
+                        if mat_name == material:
+                            if player.inventory.materials[i] >= mat_quantity:
+                                mat_satisfied = True
+                if mat_satisfied == False:
+                    craftable = False
+            if craftable:
+                valid_armor_names.append(row["name"]["str"])
+
+
+        
         super().on_render(console)
         
 
@@ -554,13 +584,8 @@ class CraftingMenuHandler(AskUserEventHandler):
             console.print(x + 1, y + i + 1, item)
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
-        materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
-                  'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
-                  'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
-                  'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
-                  '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
-
-
+       
+        player = self.engine.player
         locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
                      "(c) Woodlands: Hunt - hide and chitin", "(d) Woodlands: Gather - natural materials",
                     "(e) Scrapyard: Scavenge - scrap", "(f) Scrapyard: Labor - d6 x strength gold", 
@@ -571,7 +596,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         index = key - tcod.event.K_a
         mat_mult = 5
         if 0 <= index <= 15:
-            mat_list = materials_list
+            mat_list = self.materials_list
             if index == 0: 
                 mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
             elif index == 1: 
@@ -610,7 +635,7 @@ class CraftingMenuHandler(AskUserEventHandler):
             mat_string = ""
             for i in range(mat_mult):
                 mat_found = random.randint(0,len(mat_list)-1)
-                for j, mat in enumerate(materials_list):
+                for j, mat in enumerate(self.materials_list):
                     if mat_list[mat_found] == mat:
                         player.inventory.materials[j] += 1
                 if i == mat_mult-1:

@@ -75,3 +75,8 @@ leather_armor = Item(
 )
 
 chain_mail = Item(char="[", color=(139, 69, 19), name="Chain Mail", equippable=equippable.ChainMail())
+
+# we'll need this to call from string, e.g.
+# import entity_factories
+# item_chances: Dict[int, List[Tuple[Entity, int]]] = {
+#    0: [(getattr(entity_factories, "name of item"), 35)]
