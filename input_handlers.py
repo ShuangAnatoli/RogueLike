@@ -10,6 +10,8 @@ import color
 import exceptions
 import random
 import sys
+import numpy as np
+import pandas as pd
 from pathlib import Path
 
 # As PosixPath
@@ -504,14 +506,20 @@ class AreaRangedAttackHandler(SelectIndexHandler):
         return self.callback((x, y))
 
 
-class DowntimeMenuHandler(AskUserEventHandler):
-    """This handler lets the user select an item.
+class CraftingMenuHandler(AskUserEventHandler):
 
-    What happens then depends on the subclass.
-    """
 
-    TITLE = "Downtime (there would be crafting but it's midnight before midterms)"
 
+    armorData = pd.read_csv("armor.csv")
+    weaponData = pd.read_csv("weapon.csv")
+
+    
+    
+    TITLE = ""
+    def __init__(self, engine: Engine, time_left = 112, location = 4):
+        self.time_left = time_left
+        self.location = location
+        self.engine = engine
     
     def on_render(self, console: tcod.Console) -> None:
         """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
@@ -534,6 +542,8 @@ class DowntimeMenuHandler(AskUserEventHandler):
             fg=(255, 255, 255),
             bg=(0, 0, 0),
         )
+        self.TITLE = f"Crafting: {self.time_left} hours left"
+
         console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
         locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
                      "(c) Woodlands: Hunt - hide and chitin", "(d) Woodlands: Gather - natural materials",
@@ -545,10 +555,10 @@ class DowntimeMenuHandler(AskUserEventHandler):
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
         materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
-                  'steel_lump', 'steel_chunk', 'copper_scrap_equivalent', 'steel_tiny', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
-                  'string_36', 'string_6', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
-                  'string_36', 'string_6', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
-                  '2x4', 'rag', 'string_36', 'string_6', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+                  'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
+                  'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
+                  'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
+                  '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
 
 
         locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
@@ -565,7 +575,7 @@ class DowntimeMenuHandler(AskUserEventHandler):
             if index == 0: 
                 mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
             elif index == 1: 
-                mat_list = ['steel_lump', 'steel_chunk', 'copper_scrap_equivalent', 'steel_tiny', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
+                mat_list = ['steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
                 mat_mult = 3
                 gold_tally = 0
                 for i in range(player.fighter.base_defense):
@@ -574,11 +584,11 @@ class DowntimeMenuHandler(AskUserEventHandler):
                     gold_tally += earnings
                 self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
             elif index == 2: 
-                mat_list = ['string_36', 'string_6', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
+                mat_list = ['string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
             elif index == 3: 
-                mat_list = ['string_36', 'string_6', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
+                mat_list = ['string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
             elif index == 4: 
-                mat_list = ['2x4', 'rag', 'string_36', 'string_6', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+                mat_list = ['2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
             elif index == 5:
                 gold_tally = 0
                 for i in range(player.fighter.base_power):
@@ -608,8 +618,140 @@ class DowntimeMenuHandler(AskUserEventHandler):
                 else:
                     mat_string += f"{mat_list[mat_found]} ,"
             self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
+            
+            if self.time_left > 0:
+                return actions.TakeStairsAction(player)
+        return super().ev_keydown(event)
 
+    def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
+        """Called when the user selects a valid item."""
+        raise NotImplementedError()
+
+class DowntimeMenuHandler(AskUserEventHandler):
+    """This handler lets the user select from the downtime menu for the player to select locations to craft with. Sends to stairs currently;
+    """
+
+    TITLE = "Downtime"
+    def __init__(self, time_left = 112, location = 4):
+        self.time_left = time_left
+        self.location = location
+    
+    def on_render(self, console: tcod.Console) -> None:
+        """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
+        """
+        super().on_render(console)
+        
+
+        height = 18
+        x = 0
+        y = 0
+
+        width = 70
+
+        console.draw_frame(
+            x=x,
+            y=y,
+            width=width,
+            height=height,
+            clear=True,
+            fg=(255, 255, 255),
+            bg=(0, 0, 0),
+        )
+        console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
+        locations = ["(a) Residential District: Mingle (1 hr) - clothes/household/food items", "(b) Residential District: Game (2 hrs) - metal, trade goods, d4 x dex gold", 
+                     "(c) Woodlands: Hunt (4 hrs) - hide, chitin, meat", "(d) Woodlands: Gather (1 hr) - natural materials",
+                    "(e) Scrapyard: Scavenge (1 hr) - scrap", "(f) Scrapyard: Labor (4 hrs) - d6 x strength gold", 
+                     "(g) Market: Shop (1 hr) - spend 20 gold, many random mats", "(h) Market: Steal (1 hr) - dex based random", 
+                     "(i) Arena: Crafting (? hrs) - turn mats into gear", "(X) Arena: Next battle (quit downtime)"]
+        
+        for i, item in enumerate(locations):
+            console.print(x + 1, y + i + 1, item)
+
+    def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
+        materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
+                  'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
+                  'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
+                  'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
+                  '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+
+
+        
+        player = self.engine.player
+        key = event.sym
+        index = key - tcod.event.K_a
+        mat_mult = 5
+        travelcost = abs(self.location//2-index//2)
+        actionarray = [2,2,4,1,2,1,4,1,0,0]
+        actioncost = actionarray[index]
+        
+        if index == 9:
+            if travelcost+actioncost > self.time_left:
+                damage = 4-self.location//2+actioncost-self.time_left
+                if damage > 0:
+                    self.engine.message_log.add_message(f"You didn't have enough time, and took {damage} damage sprinting back to the arena!", color.red)
+                    player.hp -= damage
             return actions.TakeStairsAction(player)
+        if 0 <= index <= 7:
+            
+            if actioncost+travelcost > self.time_left:
+                self.engine.message_log.add_message(f"You don't have enough time; pick something else, or try returning to the arena", color.red)
+                self.engine.message_log.add_message(f"Travel time: {travelcost}, Action time: {actioncost}, Time left: {self.time_left}", color.red)
+                
+            mat_list = materials_list
+            if index == 0:
+                mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
+            elif index == 1: 
+                mat_list = ['steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
+                mat_mult = 3
+                gold_tally = 0
+                for i in range(player.fighter.base_defense):
+                    earnings = random.randint(1,4)
+                    player.inventory.gold += earnings
+                    gold_tally += earnings
+                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
+            elif index == 2: 
+                mat_list = ['string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
+            elif index == 3: 
+                mat_list = ['string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
+            elif index == 4: 
+                mat_list = ['2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+            elif index == 5:
+                gold_tally = 0
+                for i in range(player.fighter.base_power):
+                    earnings = random.randint(1,6)
+                    player.inventory.gold += earnings
+                    gold_tally += earnings
+                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
+            elif index == 6:
+                if player.inventory.gold > 20:
+                    self.engine.message_log.add_message("Not enough gold.", color.invalid)
+                    return None
+                else:
+                    player.inventory.gold -= 20
+                    mat_mult = 10
+            elif index == 7:
+                mat_mult = 0
+                for i in range(player.fighter.base_defense):
+                    mat_mult += random.randint(1,4)
+            
+            mat_string = ""
+            for i in range(mat_mult):
+                mat_found = random.randint(0,len(mat_list)-1)
+                for j, mat in enumerate(materials_list):
+                    if mat_list[mat_found] == mat:
+                        player.inventory.materials[j] += 1
+                if i == mat_mult-1:
+                    mat_string += f"and {mat_list[mat_found]}."
+                else:
+                    mat_string += f"{mat_list[mat_found]} ,"
+            self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
+            newtime = self.time_left-actioncost-travelcost
+            return DowntimeMenuHandler(self.engine, time_left = newtime, location = index)
+        
+        elif index == 8: #I think we need this to loop keydown correctly; we can't return DonwtimeMenuHandler at the outer level
+            return DowntimeMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
+
+        
         return super().ev_keydown(event)
 
     def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:

@@ -34,7 +34,10 @@ TODO:
   - (low prio) Elemental damage
 
 - New Systems:
-  - Create crafting
+  - (60%) Create Crafting
+    - Create crafting tools (require specific materials to build a forge)
+  - Create combat events in each area
+    - Allow upgrade to base for defensive benefits in base, e.g. barbed wire to deal damage, spiked pits
   - Events
   - Dismemberment
     - Cutscene dismemberment - pops up (this will have placeholder art until we either get serious and/or hire an animator)

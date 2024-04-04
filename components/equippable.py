@@ -69,7 +69,7 @@ class pair_of_chitin_arm_guards(Equippable):
 					defense_bonus = 1,
 					armor_bonus = 5,
 					craft_level = 4,
-					recipe = [['string_36', 1], ['string_6', 4], ['chitin_piece', 4], ['leather', 4]])
+					recipe = [['string', 2], ['chitin_piece', 4], ['leather', 4]])
 
 class pair_of_hard_arm_guards(Equippable): 
 	def __init__(self) -> None:

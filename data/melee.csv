@@ -1,0 +1,73 @@
+,item_name,recipe,craft_level,attack,type,power,init,name
+0,0.0,"[[['stick_long', 1]], [['fur', 2], ['leather', 2]]]",7.0,-3,0.0,6,0.0,{'str': 'war flail'}
+1,0.0,"[[['2x4', 1], ['stick_long', 1]], [['leather', 5]]]",3.0,0,0.0,4,0.0,{'str': 'peasant flail'}
+10,0.0,"[[['leather', 5]], [['spring', 1]], [['weights', 10, 'LIST']]]",2.0,6.0,0.0,3,0.0,{'str': 'blackjack'}
+11,0.0,"[[['log', 1]], [['any_tallow', 2, 'LIST'], ['cooking_oil', 16], ['cooking_oil2', 16], ['lamp_oil', 250], ['motor_oil', 250]], [['fur', 2], ['leather', 2]], [['duct_tape', 20], ['filament', 20, 'LIST']]]",7.0,5.0,0.0,5,0.0,{'str': 'bokken'}
+16,0.0,"[[['bat', 1]], [['wire_barbed', 1]]]",0,6.0,0.0,7,0.0,{'str': 'barbed wire bat'}
+18,0.0,"[[['stick', 1], ['2x4', 1], ['pool_cue', 1]]]",0,6.0,0.0,2,0.0,{'str': 'cudgel'}
+27,0.0,"[[['steel_chunk', 4]], [['stick', 1], ['2x4', 1]], [['steel', 9]]]",0,-1.0,0.0,6,0.0,{'str': 'homewrecker'}
+28,0.0,"[[['q_staff', 1]]]",3.0,5.0,0.0,5,0.0,"{'str': 'ironshod quarterstaff', 'str_pl': 'ironshod quarterstaves'}"
+31,0.0,"[[['stick_long', 1]], [['fur', 2], ['leather', 2]]]",7.0,0.0,0.0,9,0.0,{'str': 'lucerne hammer'}
+33,0.0,"[[['2x4', 3], ['stick', 6]], [['fur', 3], ['leather', 3]]]",4.0,4.0,0.0,7,0.0,{'str': 'mace'}
+36,0.0,"[[['leather', 2]], [['steel_tiny', 1, 'LIST'], ['weights', 8, 'LIST']]]",0,6.0,0.0,3,0.0,{'str': 'makeshift sap'}
+38,0.0,"[[['2x4', 3], ['stick', 6]], [['fur', 3], ['leather', 3]]]",6.0,2.0,0.0,8,0.0,{'str': 'morningstar'}
+41,0.0,"[[['bat', 1]], [['nail', 6]]]",0,6.0,0.0,6,0.0,{'str': 'nail bat'}
+42,0.0,"[[['2x4', 1], ['stick', 1]], [['nail', 6]]]",0,4.0,0.0,2,0.0,{'str': 'nailboard'}
+46,0.0,"[[['stick_long', 1]], [['leather', 2]]]",2.0,5.0,0.0,4,0.0,"{'str': 'quarterstaff', 'str_pl': 'quarterstaves'}"
+47,0.0,"[[['rock', 1]], [['socks', 1], ['socks_wool', 1]]]",0,3.0,0.0,2,0.0,"{'str': 'rock in a sock', 'str_pl': 'rocks in socks'}"
+49,0.0,"[[['log', 1]], [['butter', 30], ['edible_lard', 4, 'LIST']]]",3.0,5.0,0.0,5,0.0,{'str': 'shillelagh'}
+50,0.0,"[[['shillelagh', 1]], [['weights', 15, 'LIST']]]",4.0,5.0,0.0,6,0.0,{'str': 'loaded stick'}
+52,0.0,"[[['i_staff', 1]], [['tazer', 1]], [['cable', 10]]]",3.0,3.0,0.0,4,0.0,"{'str': 'powered quarterstaff', 'str_pl': 'powered quarterstaves'}"
+53,0.0,"[[['plastic_chunk', 10]], [['amplifier', 2]], [['power_supply', 1]], [['scrap', 2]], [['cable', 10]]]",6.0,4.0,0.0,4,0.0,"{'str': 'tactical tonfa (off)', 'str_pl': 'tactical tonfas (off)'}"
+55,0.0,"[[['plastic_chunk', 10]]]",6.0,6.0,0.0,4,0.0,{'str': 'tonfa'}
+56,0.0,"[[['2x4', 1], ['stick', 2]]]",4.0,5.0,0.0,4,0.0,{'str': 'wooden tonfa'}
+57,0.0,"[[['scrap', 24]], [['2x4', 1], ['stick', 2]]]",7.0,3,0.0,8,0.0,{'str': 'war hammer'}
+0,0.0,"[[['stick_long', 1]]]",5.0,3,0.0,5,0.0,{'str': 'pitchfork'}
+1,0.0,"[[['stick', 1], ['2x4', 1], ['broom', 1], ['pool_cue', 1]]]",0,3,0.0,3,0.0,{'str': 'pointy stick'}
+2,0.0,"[[['stick_long', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['duct_tape', 20], ['filament', 20, 'LIST']]]",2.0,4.0,0.0,3,0.0,{'str': 'wooden spear'}
+4,0.0,"[[['stick_long', 1], ['long_pole', 1], ['broom', 1], ['pool_cue', 1]], [['spike', 1], ['knife_steak', 1], ['knife_paring', 1], ['knife_folding', 1], ['scalpel', 1], ['xacto', 1]], [['cordage', 1, 'LIST'], ['duct_tape', 50]]]",0,3,0.0,4,0.0,{'str': 'spike on a stick'}
+5,0.0,"[[['stick_long', 1], ['long_pole', 1], ['broom', 1], ['pool_cue', 1]], [['knife_butcher', 1], ['knife_chef', 1], ['knife_carving', 1], ['knife_vegetable_cleaver', 1], ['knife_meat_cleaver', 1], ['blade', 1], ['knife_combat', 1], ['knife_combat_mod', 1], ['knife_hunting', 1], ['knife_rambo', 1], ['knife_rm42', 1], ['knife_trench', 1], ['tanto', 1], ['kirpan', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['cordage', 1, 'LIST'], ['duct_tape', 50]]]",0,4.0,0.0,4,0.0,{'str': 'simple knife spear'}
+6,0.0,"[[['stick_long', 1], ['long_pole', 1], ['pool_cue', 1]], [['knife_butcher', 1], ['knife_chef', 1], ['knife_carving', 1], ['knife_vegetable_cleaver', 1], ['knife_meat_cleaver', 1], ['blade', 1], ['knife_combat', 1], ['knife_combat_mod', 1], ['knife_hunting', 1], ['knife_rambo', 1], ['knife_rm42', 1], ['knife_trench', 1], ['tanto', 1], ['kirpan', 1]], [['nail', 2]], [['cordage', 2, 'LIST'], ['duct_tape', 100]]]",1.0,4.0,0.0,5,0.0,{'str': 'knife spear'}
+7,0.0,"[[['stick_long', 1]], [['spike', 1]], [['rag', 3], ['felt_patch', 3], ['leather', 3], ['fur', 3]], [['cordage', 2, 'LIST'], ['duct_tape', 75]]]",3.0,2,0.0,5,0.0,{'str': 'homemade halfpike'}
+8,0.0,"[[['stick_long', 1], ['pool_cue', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['cordage', 2, 'LIST'], ['duct_tape', 75]], [['spike', 3]]]",2.0,2,0.0,4,0.0,{'str': 'forked spear'}
+9,0.0,"[[['stick_long', 1], ['pool_cue', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['duct_tape', 20], ['cordage_short', 1, 'LIST'], ['filament', 50, 'LIST']], [['copper_scrap_equivalent', 12, 'LIST']]]",3.0,3.0,0.0,5,0.0,{'str': 'copper spear'}
+10,0.0,"[[['stick_long', 1]], [['filament', 100, 'LIST']], [['rag', 2], ['felt_patch', 2], ['leather', 2], ['fur', 2]]]",4.0,4.0,0.0,7,0.0,{'str': 'steel spear'}
+11,0.0,"[[['pipe', 1]]]",1.0,2.0,0.0,6,0.0,{'str': 'pipe spear'}
+12,0.0,"[[['rebar', 1]]]",0,3,0.0,4,0.0,{'str': 'sharpened rebar'}
+13,0.0,"[[['filament', 100, 'LIST']], [['stick_long', 1]], [['fur', 2], ['leather', 2]]]",7.0,2,0.0,6,0.0,{'str': 'qiang'}
+20,0.0,"[[['blade', 1]], [['spike', 1]], [['pipe', 2]], [['duct_tape', 100]], [['steel', 3]]]",6.0,1.0,0.0,8,0.0,{'str_sp': 'survivor naginata'}
+21,0.0,"[[['spear_wood', 1], ['pointy_stick', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['duct_tape', 20], ['filament', 20, 'LIST']], [['steel', 3]]]",3.0,6.0,0.0,2,0.0,{'str': 'wooden javelin'}
+22,0.0,"[[['javelin', 1]], [['scrap', 1]], [['steel', 3]]]",3.0,2.0,0.0,5,0.0,{'str': 'iron javelin'}
+23,0.0,"[[['long_pole', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['duct_tape', 20], ['filament', 20, 'LIST']]]",3.0,0,0.0,4,0.0,"{'ctxt': 'weapon', 'str': 'wooden pike'}"
+24,0.0,"[[['long_pole', 1]], [['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1]], [['duct_tape', 20], ['cordage_short', 1, 'LIST'], ['filament', 50, 'LIST']], [['copper_scrap_equivalent', 12, 'LIST']]]",3.0,0,0.0,5,0.0,"{'ctxt': 'weapon', 'str': 'copper pike'}"
+25,0.0,"[[['long_pole', 1]], [['fur', 2], ['leather', 2]], [['steel', 6]]]",7.0,0,0.0,6,0.0,"{'ctxt': 'weapon', 'str': 'pike'}"
+29,0.0,"[[['scrap_bronze', 2]], [['stick_long', 1]], [['rag', 2], ['felt_patch', 2], ['leather', 2], ['fur', 2]]]",4.0,1.0,0.0,6,0.0,"{'str': 'dory', 'str_pl': 'dories'}"
+30,0.0,"[[['scrap_bronze', 4]], [['stick_long', 1]], [['rag', 2], ['felt_patch', 2], ['leather', 2], ['fur', 2]]]",6.0,1.0,0.0,9,0.0,{'str_sp': 'ji'}
+2,0.0,"[[['sword_wood', 1]], [['scrap', 4]]]",2.0,4.0,0.0,5,0.0,{'str': 'crude sword'}
+3,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]]]",5.0,2.0,0.0,7,0.0,{'str': 'hand-forged sword'}
+8,0.0,"[[['fur', 1], ['leather', 1]]]",4.0,5,0.0,4,0.0,"{'str': 'hunting knife', 'str_pl': 'hunting knives'}"
+16,0.0,"[[['duct_tape', 50]], [['blade', 1]]]",0,4,0.0,4,0.0,{'str': 'makeshift machete'}
+17,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 2], ['leather', 2]]]",4.0,5.0,0.0,6,0.0,{'str': 'machete'}
+19,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 2], ['leather', 2]], [['steel', 18]]]",8.0,4.0,0.0,7,0.0,{'str': 'cavalry saber'}
+21,0.0,"[[['plastic_chunk', 2]], [['steel', 9]]]",8.0,4,0.0,7,0.0,{'str': 'kukri'}
+22,0.0,"[[['filament', 100, 'LIST']], [['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]], [['steel', 9]]]",8.0,6.0,0.0,8,0.0,{'str_sp': 'jian'}
+25,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]], [['steel', 9]]]",8.0,4.0,0.0,7,0.0,{'str': 'scimitar'}
+31,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]], [['steel', 6]]]",8.0,3.0,0.0,8,0.0,{'str': 'longsword'}
+34,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]]]",8.0,4.0,0.0,9,0.0,{'str': 'arming sword'}
+37,0.0,"[[['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1], ['duct_tape', 50], ['cordage_short', 2, 'LIST'], ['filament', 100, 'LIST']], [['scrap_bronze', 4]], [['steel', 6]]]",6.0,5.0,0.0,7,0.0,"{'str': 'xiphos', 'str_pl': 'xiphoses'}"
+38,0.0,"[[['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1], ['duct_tape', 50], ['cordage_short', 2, 'LIST'], ['filament', 100, 'LIST']], [['scrap_bronze', 5]], [['steel', 6]]]",7.0,4.0,0.0,5,0.0,"{'str': 'khopesh', 'str_pl': 'khopeshes'}"
+39,0.0,"[[['rag', 1], ['felt_patch', 1], ['leather', 1], ['fur', 1], ['duct_tape', 50], ['cordage_short', 2, 'LIST'], ['filament', 100, 'LIST']], [['scrap_bronze', 5]]]",7.0,3,0.0,7,0.0,{'str_sp': 'dao'}
+40,0.0,"[[['machete', 1], ['makeshift_machete', 1]], [['duct_tape', 100]]]",6.0,5.0,0.0,6,0.0,{'str': 'survivor machete'}
+41,0.0,"[[['plastic_chunk', 4]], [['steel', 15]]]",9.0,4.0,0.0,7,0.0,{'str': 'sword bayonet'}
+44,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 2], ['leather', 2]], [['scrap_bronze', 1]]]",8.0,4.0,0.0,6,0.0,{'str_sp': 'wakizashi'}
+45,0.0,"[[['2x4', 2], ['stick', 4]], [['fur', 2], ['leather', 2]], [['scrap_bronze', 1]]]",9.0,1.0,0.0,8,0.0,{'str': 'zweihaender'}
+50,0.0,"[[['2x4', 3], ['stick', 6]], [['fur', 3], ['leather', 3]]]",10.0,1.0,0.0,8,0.0,{'str_sp': 'nodachi'}
+64,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]]]",8.0,5.0,0.0,8,0.0,{'str': 'broadsword'}
+69,0.0,"[[['2x4', 2], ['stick', 4]], [['fur', 2], ['leather', 2]]]",9.0,4.0,0.0,8,0.0,{'str': 'katana'}
+80,0.0,"[[['2x4', 2], ['stick', 4]], [['fur', 4], ['leather', 4]]]",5.0,3.0,0.0,7,0.0,"{'str': 'pair of butterfly swords', 'str_pl': 'pairs of butterfly swords'}"
+81,0.0,"[[['q_staff', 1]], [['duct_tape', 200]], [['chainsaw_off', 2]]]",4.0,-19.0,0.0,1,0.0,"{'str': 'chainsaw lajatang (off)', 'str_pl': 'chainsaw lajatangs (off)'}"
+83,0.0,"[[['q_staff', 1]], [['duct_tape', 200]], [['elec_chainsaw_off', 2]]]",4.0,-19.0,0.0,1,0.0,"{'str': 'electric chainsaw lajatang (off)', 'str_pl': 'electric chainsaw lajatangs (off)'}"
+85,0.0,"[[['2x4', 1], ['stick', 2]], [['fur', 1], ['leather', 1]]]",7.0,5.0,0.0,7,0.0,"{'str': 'cutlass', 'str_pl': 'cutlasses'}"
+86,0.0,"[[['q_staff', 1]], [['duct_tape', 100]], [['blade', 2]]]",3.0,-4.0,0.0,4,0.0,{'str': 'lajatang'}
+87,0.0,"[[['chainsaw_off', 1]], [['metal_tank_little', 1]], [['steel_chunk', 3], ['scrap', 9]]]",6.0,-3.0,0.0,1,0.0,"{'str': 'combat chainsaw (off)', 'str_pl': 'combat chainsaws (off)'}"
+89,0.0,"[[['elec_chainsaw_off', 1]], [['steel_chunk', 3], ['scrap', 9]]]",6.0,-3.0,0.0,1,0.0,"{'str': 'electric combat chainsaw (off)', 'str_pl': 'electric combat chainsaws (off)'}"

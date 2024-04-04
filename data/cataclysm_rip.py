@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import math
 import string
+import pathlib
 
 targets_armor_list = [["arms_armor", "arms"], ["boots", "feet"], ["gloves", "hands"], ["helmets", "head"], ["legs_armor", "legs"], ["shields", "other"], ["suits_protection", "suit"], ["torso_armor", "torso"]]
 targets_ranged_list = ["archery", "crossbow", "slings", "throwing"]
@@ -55,7 +56,9 @@ for armor in targets_armor_list:
             armor_mats = armor_item_df.at[index,"material"]
             
             thickness = armor_item_df.at[index,"material_thickness"]
-            if pd.isna(thickness):
+            try: 
+                round(thickness)
+            except:
                 thickness = 1
             coverage = armor_item_df.at[index,"coverage"]
             try:
@@ -67,7 +70,7 @@ for armor in targets_armor_list:
             acid_res = 0
             elec_res = 0
             fire_res = 0
-            cold_res = armor_item_df.at[index,"warmth"]/5
+            armor_item_df.at[index, "cold_res"] = armor_item_df.at[index,"warmth"]/5
 
             
             for mat in armor_mats:
@@ -79,7 +82,7 @@ for armor in targets_armor_list:
                 fire_res = int(row["fire_resist"].iloc[0])
             num_mats = len(armor_mats)
             bash_res /= num_mats/thickness
-
+            
             cut_res /= num_mats/thickness
             try:
                 round(bash_res)
@@ -100,24 +103,37 @@ for armor in targets_armor_list:
             armor_item_df.at[index,"protection"] = protection_final #percentage reduction of dismemberment chance to this body part.
 
             #MITIGATION (flat damage reduction)
-            mitigation_final = round((156+coverage)/256*(cut_res+2*bash_res)/8)
-            try:
-                mitigation_final > 0
-            except:
-                mitigation_final = 0
+            mitigation_final = round((156+coverage)/256*(cut_res+2*bash_res)/4)
+
             
-            #above, 156+coverage/256 gives flattened coverage multiplier, /8 with x1.5 from the 2+1 gives 5.33, to approx match 32/(64+speed). Should be 5-20 range
-            armor_item_df.at[index,"mitigation"] = mitigation_final #flat damage reduction
-        
             try:
                 protection_final > 0
             except:
                 protection_final = 0
+
+                
+            try:
+                float(mitigation_final) > 0
+            except:
+                mitigation_final = 0
+
+            armor_final = round((2*protection_final-0.5)*(20+mitigation_final)*3/16)
+            
+            
+            
+            #above, 156+coverage/256 gives flattened coverage multiplier, /8 with x1.5 from the 2+1 gives 5.33, to approx match 32/(64+speed). Should be 5-20 range
+            armor_item_df.at[index,"mitigation"] = mitigation_final #flat damage reduction
+        
             #ARMOR (avoid getting hit, as D&D)
-            armor_item_df.at[index,"armor"] = round((1+protection_final)*(20+mitigation_final)/8)
+            armor_item_df.at[index,"armor"] = armor_final
+            try: 
+                armor_item_df.at[index,"craft_level"] > 0
+            except:
+                armor_item_df.at[index,"craft_level"] = round((mitigation_final+armor_final)/5)
 
 
-    big_armor_df = big_armor_df._append(armor_item_df[["name", "armor", "mitigation", "recipe", "craft_level"]].dropna())
+
+    big_armor_df = big_armor_df._append(armor_item_df[["name", "armor", "mitigation", "recipe", "craft_level", "elec_res", "fire_res", "acid_res", "cold_res", "protection"]].fillna(0))
 
         
 big_melee_df = pd.DataFrame({'item_name' : []})
@@ -138,14 +154,33 @@ for melee in targets_melee_list:
     melee_item_df["power"] = "0"
     melee_item_df["init"] = ""
     melee_recipe_df = pd.read_json(recipe_path+f"/weapon/{melee[1]}.json")
+    
+    melee_item_df = melee_item_df.dropna(subset=["weight", "volume"])
     for index, row in melee_item_df.iterrows():
         try:
             melee_recipe_index = melee_recipe_df[melee_recipe_df["result"] == row["id"]].index[0]
         except:
             pass
         else:
-            melee_item_df = melee_item_df.dropna(subset=["weight", "volume"])
             melee_item_df.at[index,"recipe"] = melee_recipe_df.at[melee_recipe_index, "components"]
+
+            try:
+                len(melee_recipe_df.at[index,"using"])
+            except:
+                pass
+            else:
+                for i in range(len(melee_recipe_df.at[index,"using"])):
+                    if melee_recipe_df.at[index,"using"][i][0] == "steel_standard":
+                        num_steel = melee_recipe_df.at[index,"using"][i][1]*3
+                        melee_item_df.at[index,"recipe"].append([["steel", num_steel]])
+                    elif melee_recipe_df.at[index,"using"][i][0] == "steel_tiny":
+                        num_steel = melee_recipe_df.at[index,"using"][i][1]
+                        melee_item_df.at[index,"recipe"].append([["steel", num_steel]])
+                        
+                    elif melee_recipe_df.at[index,"using"][i][0] == "bronzesmithing_tools":
+                        num_bronze = melee_recipe_df.at[index,"using"][i][1]
+                        melee_item_df.at[index,"recipe"].append([["scrap_bronze", num_bronze]])
+            
             melee_item_df.at[index,"craft_level"] = melee_recipe_df.at[melee_recipe_index, "difficulty"]
             bash = melee_item_df.at[index,"bashing"]
             try:
@@ -187,11 +222,17 @@ for melee in targets_melee_list:
                 to_hit = 0
             melee_item_df.at[index, "attack"] = to_hit+round((150-swing_time)/16)
             final_dmg_avg = round(total_damage/(65+swing_time)*32)
+
             melee_item_df.at[index, "power"] = final_dmg_avg
 
+            
+            try: 
+                melee_item_df.at[index,"craft_level"] >= 0
+            except:
+                melee_item_df.at[index,"craft_level"] = round((final_dmg_avg+to_hit*4)/8)
             #TODO: base damage on bash/stab/cut
             #Dismemberment has different forms: broken/bleeding/removed
-    big_melee_df = big_melee_df._append(melee_item_df[["name", "attack", "power", "recipe", "craft_level"]]).dropna()
+    big_melee_df = big_melee_df._append(melee_item_df[["name", "attack", "power", "recipe", "craft_level"]]).fillna(0)
 
 
 # big_ranged_df = pd.DataFrame({'item_name' : []})
@@ -226,25 +267,32 @@ for melee in targets_melee_list:
 #         ranged_item_df["power"] = final_dmg_avg
 
 #     big_ranged_df = big_ranged_df.append(ranged_item_df)
+ 
+
+big_melee_df = big_melee_df[(big_melee_df['power'].ne("0") & big_melee_df['attack'].ne("0"))]
+filepath = pathlib.Path('data/melee.csv') 
+filepath.parent.mkdir(parents=True, exist_ok=True)  
+big_melee_df.to_csv(filepath)
+
+
+big_armor_df = big_armor_df[(big_armor_df['mitigation'].ne("0") & big_armor_df['armor'].ne("0"))]
+filepath = pathlib.Path('data/armor.csv')  
+filepath.parent.mkdir(parents=True, exist_ok=True)  
+big_armor_df.to_csv(filepath)
 
 with open("final_path.txt", "w") as f:
     for index, melee_item in big_melee_df.iterrows():
-        flag = True
-        #print(int(melee_item['power']),int(melee_item['attack']))
-        if int(melee_item['power']) == 0 and int(melee_item['attack']) == 0:
-            flag = False
-        if flag == True:
-            try:
-                f.write(f"class {melee_item['name']['str'].replace(' ', '_')}(Equippable): \n")
-            except:
-                f.write(f"class {melee_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
-            f.write(f"\tdef __init__(self) -> None:\n")
-            f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Weapon, 
-                    power_bonus={int(melee_item['power'])}, 
-                    attack_bonus = {int(melee_item['attack'])},
-                    craft_level = {int(melee_item['craft_level'])},
-                    recipe = [{', '.join(f"[{item[0][0]}, {str(item[0][1])}]" for item in melee_item['recipe'])})]
-                    \n\n""")
+        try:
+            f.write(f"class {melee_item['name']['str'].replace(' ', '_')}(Equippable): \n")
+        except:
+            f.write(f"class {melee_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
+        f.write(f"\tdef __init__(self) -> None:\n")
+        # f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Weapon, 
+        #         power_bonus={int(melee_item['power'])}, 
+        #         attack_bonus = {int(melee_item['attack'])},
+        #         craft_level = {int(melee_item['craft_level'])},
+        #         recipe = [{', '.join(f"[{item[0][0]}, {str(item[0][1])}]" for item in melee_item['recipe'])})]
+        #         \n\n""")
     # for ranged_item in big_ranged_df.iterrows():
     #     f.write(f"class {ranged_item['name']['str']}Equippable \n")
     #     f.write(f"\tdef __init__(self) -> None:\n")
@@ -252,24 +300,18 @@ with open("final_path.txt", "w") as f:
         
 
     for index, armor_item in big_armor_df.iterrows():
-        flag = True
-        if int(armor_item['mitigation']) == 0 and int(armor_item['armor']) == 0:
-            flag = False
-        if flag == True:
-            try:
-                f.write(f"class {armor_item['name']['str'].replace(' ', '_')}(Equippable): \n")
-            except:
-                f.write(f"class {armor_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
-            f.write(f"\tdef __init__(self) -> None:\n")
-            for item in armor_item['recipe']:
-                print("PRINTING HERE")
-                print(', '.join([f"{it}" for it in item]))
-            f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Armor, 
-                    defense_bonus = {int(armor_item['mitigation'])}, 
-                    armor_bonus = {int(armor_item['armor'])},
-                    craft_level = {int(armor_item['craft_level'])},
-                    recipe = [{', '.join(f"{item}"[1:-1] for item in armor_item['recipe'])}])\n\n""")
+        try:
+            f.write(f"class {armor_item['name']['str'].replace(' ', '_')}(Equippable): \n")
+        except:
+            f.write(f"class {armor_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
+        f.write(f"\tdef __init__(self) -> None:\n")
+        f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Armor, 
+                defense_bonus = {int(armor_item['mitigation'])}, 
+                armor_bonus = {int(armor_item['armor'])},
+                craft_level = {int(armor_item['craft_level'])},
+                recipe = [{', '.join(f"{item}"[1:-1] for item in armor_item['recipe'])}])\n\n""")
 
+#TODO: Material conversions. e.g. Log -> long stick takes X hours.
                 
 # class Sword(Equippable):
 #     def __init__(self) -> None:
