@@ -512,6 +512,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         self.time_left = time_left
         self.location = location
         self.engine = engine
+        player = self.engine.player
 
 
         self.materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
@@ -520,17 +521,7 @@ class CraftingMenuHandler(AskUserEventHandler):
                   'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
                   '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
 
-
         
-    TITLE = ""
-    
-    def on_render(self, console: tcod.Console) -> None:
-        """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
-        """
-
-        player = self.engine.player
-        
-
         armorData = pd.read_csv("armor.csv")
         weaponData = pd.read_csv("weapon.csv")
 
@@ -552,12 +543,22 @@ class CraftingMenuHandler(AskUserEventHandler):
             if craftable:
                 valid_armor_names.append(row["name"]["str"])
 
+        self.valid_armor_names = valid_armor_names
+        
+    TITLE = ""
+    
+    def on_render(self, console: tcod.Console) -> None:
+        """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
+        """
+    
+        
+        player = self.engine.player
 
         
         super().on_render(console)
         
 
-        height = 18
+        height = len(self.valid_armor_names)
         x = 0
         y = 0
 
@@ -575,27 +576,20 @@ class CraftingMenuHandler(AskUserEventHandler):
         self.TITLE = f"Crafting: {self.time_left} hours left"
 
         console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
-        locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
-                     "(c) Woodlands: Hunt - hide and chitin", "(d) Woodlands: Gather - natural materials",
-                    "(e) Scrapyard: Scavenge - scrap", "(f) Scrapyard: Labor - d6 x strength gold", 
-                     "(g) Market: Shop - spend 20 gold, many random mats", "(h) Market: Steal - dex based random"]
-        
-        for i, item in enumerate(locations):
-            console.print(x + 1, y + i + 1, item)
+
+        for i, item in enumerate(self.valid_armor_names):
+            item_str = f"({chr(ord('a') + i)}) {item}"
+            console.print(x + 1, y + i + 1, item_str)
+
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
        
         player = self.engine.player
-        locations = ["(a) Residential District: Mingle - clothing components", "(b) Residential District: Game - metal, trade goods, d4 x dex gold", 
-                     "(c) Woodlands: Hunt - hide and chitin", "(d) Woodlands: Gather - natural materials",
-                    "(e) Scrapyard: Scavenge - scrap", "(f) Scrapyard: Labor - d6 x strength gold", 
-                     "(g) Market: Shop - spend 20 gold, many random mats", "(h) Market: Steal - dex based random"]
-        
+        height = len(self.valid_armor_names)
         player = self.engine.player
         key = event.sym
         index = key - tcod.event.K_a
-        mat_mult = 5
-        if 0 <= index <= 15:
+        if 0 <= index <= height:
             mat_list = self.materials_list
             if index == 0: 
                 mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
