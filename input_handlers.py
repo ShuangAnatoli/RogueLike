@@ -622,8 +622,9 @@ class CraftingMenuHandler(AskUserEventHandler):
         mat_list = self.materials_list
         index = key - tcod.event.K_a
         timecost = 1
-        if 0 <= index <= total_armors or index == 23:
+        if index < 23:
             armor_tuple = self.valid_armors[index]
+        if 0 <= index <= total_armors or index == 23:
             
             if index <= total_armors:
                 
