@@ -269,6 +269,7 @@ for melee in targets_melee_list:
 #     big_ranged_df = big_ranged_df.append(ranged_item_df)
  
 
+#Currently requires manual string fixing. TODO: Convert to Json.
 big_melee_df = big_melee_df[(big_melee_df['power'].ne("0") & big_melee_df['attack'].ne("0"))]
 filepath = pathlib.Path('data/melee.csv') 
 filepath.parent.mkdir(parents=True, exist_ok=True)  

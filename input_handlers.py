@@ -520,12 +520,11 @@ class CraftingMenuHandler(AskUserEventHandler):
                   'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
                   '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
 
-        
-        armorData = pd.read_csv("armor.csv")
-        weaponData = pd.read_csv("weapon.csv")
+        armorData = pd.read_csv("data/armor.csv")
+        meleeData = pd.read_csv("data/melee.csv")
 
         valid_armors = []
-        for row in armorData.rows:
+        for row_index, row in armorData.iterrows():
             materials_used = []
             #Assumes items are craftable; if any material cannot be satisfied, it is not craftable.
             craftable = True
@@ -548,7 +547,8 @@ class CraftingMenuHandler(AskUserEventHandler):
             #TODO: Ensure only one crafting recipe exists for each item; duplicates can be left in place
             if craftable:
                 valid_armors.append([row["name"]["str"], materials_used])
-
+        
+        self.engine.message_log.add_message("crafting 1")
         self.valid_armors = valid_armors
         
     TITLE = ""
@@ -623,6 +623,10 @@ class CraftingMenuHandler(AskUserEventHandler):
             
             if self.time_left > 0:
                 return actions.TakeStairsAction(player)
+                
+        else:
+            self.engine.message_log.add_message("Invalid entry.", color.invalid)
+            return CraftingMenuHandler(self.engine, time_left = self.time_left, location = self.location)
         return super().ev_keydown(event)
 
     def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
@@ -683,24 +687,30 @@ class DowntimeMenuHandler(AskUserEventHandler):
         key = event.sym
         index = key - tcod.event.K_a
         mat_mult = 5
-        travelcost = abs(self.location//2-index//2)
-        actionarray = [2,2,4,1,2,1,4,1,0,0]
-        actioncost = actionarray[index]
         
-        if index == 9:
-            if travelcost+actioncost > self.time_left:
-                damage = 4-self.location//2+actioncost-self.time_left
-                if damage > 0:
-                    self.engine.message_log.add_message(f"You didn't have enough time, and took {damage} damage sprinting back to the arena!", color.red)
-                    player.hp -= damage
-            return actions.TakeStairsAction(player)
-        if 0 <= index <= 7:
+        
+        if 0 <= index <= 8:
             
+            travelcost = abs(self.location//2-index//2)
+            actionarray = [2,2,4,1,2,1,4,1,0,0]
+            actioncost = actionarray[index]
             if actioncost+travelcost > self.time_left:
                 self.engine.message_log.add_message(f"You don't have enough time; pick something else, or try returning to the arena", color.red)
                 self.engine.message_log.add_message(f"Travel time: {travelcost}, Action time: {actioncost}, Time left: {self.time_left}", color.red)
                 
             mat_list = materials_list
+            
+            if index == 9:
+                if travelcost+actioncost > self.time_left:
+                    damage = 4-self.location//2+actioncost-self.time_left
+                    if damage > 0:
+                        self.engine.message_log.add_message(f"You didn't have enough time, and took {damage} damage sprinting back to the arena!", color.red)
+                        player.hp -= damage
+                return actions.TakeStairsAction(player)
+            
+            if index == 8: #Corresponds to Crafting
+                self.engine.message_log.add_message("go to crafting")
+                return CraftingMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
             if index == 0:
                 mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
             elif index == 1: 
@@ -750,11 +760,15 @@ class DowntimeMenuHandler(AskUserEventHandler):
             
             newtime = self.time_left-actioncost-travelcost
 
-            if index == 8: #Corresponds to Crafting
-                return CraftingMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
 
             self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
             return DowntimeMenuHandler(self.engine, time_left = newtime, location = index)
+            
+
+        else:
+            self.engine.message_log.add_message("Invalid entry.", color.invalid)
+            return DowntimeMenuHandler(self.engine, time_left = self.time_left, location = self.location)
+            
         
         
         return super().ev_keydown(event)
