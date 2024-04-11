@@ -520,8 +520,8 @@ class CraftingMenuHandler(AskUserEventHandler):
                   'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
                   '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
 
-        armorData = pd.read_csv("data/armor.csv")
-        meleeData = pd.read_csv("data/melee.csv")
+        armorData = pd.read_json("data/armor.json", lines=True)
+        meleeData = pd.read_json("data/melee.json", lines=True)
 
         
 
@@ -541,16 +541,13 @@ class CraftingMenuHandler(AskUserEventHandler):
                         if mat_name == material:
                             if player.inventory.materials[i] >= mat_quantity and mat_satisfied == False:
                                 mat_satisfied = True
-                                
                                 materials_used.append(mat_tuple)
-
                 if mat_satisfied == False:
                     craftable = False
             #TODO: Ensure only one crafting recipe exists for each item; duplicates can be left in place
             if craftable:
                 valid_armors.append([row["name"]["str"], materials_used])
         
-        self.engine.message_log.add_message("crafting 1")
         self.valid_armors = valid_armors
         
     TITLE = ""
@@ -562,11 +559,9 @@ class CraftingMenuHandler(AskUserEventHandler):
         super().on_render(console)
         
         player = self.engine.player
-
-        
         
 
-        height = len(self.valid_armors)
+        height = max(len(self.valid_armors)+1, 22)
         x = 0
         y = 0
 
@@ -584,7 +579,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         self.TITLE = f"Crafting: {self.time_left} hours left"
 
         console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
-
+        i = 0
         for i, item in enumerate(self.valid_armors):
             #item[0]: Armor name
             #item[1]: Materials list (each element is [material, quantity])
@@ -609,22 +604,48 @@ class CraftingMenuHandler(AskUserEventHandler):
                 
             item_str = f"({chr(ord('a') + i)}) {item[0]}: Requires{mat_str}"
             console.print(x + 1, y + i + 1, item_str)
+        console.print(x+1, y+i+2, "(x) Return to Downtime Menu")
 
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
-       
+        materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
+                  'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
+                  'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
+                  'string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ,
+                  '2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+
         player = self.engine.player
-        height = len(self.valid_armors)
-        player = self.engine.player
+        total_armors = len(self.valid_armors)
         key = event.sym
         
         mat_list = self.materials_list
         index = key - tcod.event.K_a
-        if 0 <= index <= height:
-            armor_print = self.valid_armors[index]
+        timecost = 1
+        if 0 <= index <= total_armors or index == 23:
+            armor_tuple = self.valid_armors[index]
             
-            if self.time_left > 0:
+            if index <= total_armors:
+                armor_name = armor_tuple[0]
+                materials = armor_tuple[1]
+                for material in materials:
+                    material_name = material[0]
+                    material_quantity = material[1]
+                    for i, target in enumerate(materials_list):
+                        if material_name == target:
+                            player.inventory.materials[i] -= material_quantity
+
+
+                player.inventory.items.append(equippable.Sword())
+            
+            if index == 23:
+                return DowntimeMenuHandler(self.engine, time_left = self.time_left)
+            
+            if self.time_left < 0:
                 return actions.TakeStairsAction(player)
+            
+            else:
+                return CraftingMenuHandler(self.engine, time_left = self.time_left-timecost)
+
                 
         else:
             self.engine.message_log.add_message("Invalid entry.", color.invalid)
@@ -677,6 +698,7 @@ class DowntimeMenuHandler(AskUserEventHandler):
             console.print(x + 1, y + i + 1, item)
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
+        #TODO: convert materials_list to materials_dict on player end
         materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
                   'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
                   'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
@@ -691,7 +713,7 @@ class DowntimeMenuHandler(AskUserEventHandler):
         mat_mult = 5
         
         
-        if 0 <= index <= 8:
+        if 0 <= index <= 8 or index == 23:
             
             travelcost = abs(self.location//2-index//2)
             actionarray = [2,2,4,1,2,1,4,1,0,0]
@@ -702,7 +724,7 @@ class DowntimeMenuHandler(AskUserEventHandler):
                 
             mat_list = materials_list
             
-            if index == 9:
+            if index == 23:
                 if travelcost+actioncost > self.time_left:
                     damage = 4-self.location//2+actioncost-self.time_left
                     if damage > 0:
@@ -711,7 +733,6 @@ class DowntimeMenuHandler(AskUserEventHandler):
                 return actions.TakeStairsAction(player)
             
             if index == 8: #Corresponds to Crafting
-                self.engine.message_log.add_message("go to crafting")
                 return CraftingMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
             if index == 0:
                 mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']

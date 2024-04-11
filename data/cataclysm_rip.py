@@ -273,7 +273,7 @@ big_melee_df = big_melee_df[(big_melee_df['power'].ne("0") & big_melee_df['attac
 filepath = pathlib.Path('data/melee.json') 
 big_melee_df.reset_index(inplace=True)
 filepath.parent.mkdir(parents=True, exist_ok=True)  
-big_melee_df.to_json(filepath, orient="index")
+big_melee_df.to_json(filepath, orient="index", lines=True)
 
 
 big_armor_df = big_armor_df[(big_armor_df['mitigation'].ne("0") & big_armor_df['armor'].ne("0"))]
