@@ -523,6 +523,8 @@ class CraftingMenuHandler(AskUserEventHandler):
         armorData = pd.read_csv("data/armor.csv")
         meleeData = pd.read_csv("data/melee.csv")
 
+        
+
         valid_armors = []
         for row_index, row in armorData.iterrows():
             materials_used = []

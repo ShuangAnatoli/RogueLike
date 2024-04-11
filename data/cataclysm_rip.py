@@ -269,17 +269,18 @@ for melee in targets_melee_list:
 #     big_ranged_df = big_ranged_df.append(ranged_item_df)
  
 
-#Currently requires manual string fixing. TODO: Convert to Json.
 big_melee_df = big_melee_df[(big_melee_df['power'].ne("0") & big_melee_df['attack'].ne("0"))]
-filepath = pathlib.Path('data/melee.csv') 
+filepath = pathlib.Path('data/melee.json') 
+big_melee_df.reset_index(inplace=True)
 filepath.parent.mkdir(parents=True, exist_ok=True)  
-big_melee_df.to_csv(filepath)
+big_melee_df.to_json(filepath, orient="index")
 
 
 big_armor_df = big_armor_df[(big_armor_df['mitigation'].ne("0") & big_armor_df['armor'].ne("0"))]
-filepath = pathlib.Path('data/armor.csv')  
+filepath = pathlib.Path('data/armor.json') 
+big_armor_df.reset_index(inplace=True)
 filepath.parent.mkdir(parents=True, exist_ok=True)  
-big_armor_df.to_csv(filepath)
+big_armor_df.to_json(filepath, orient="records", lines=True)
 
 with open("final_path.txt", "w") as f:
     for index, melee_item in big_melee_df.iterrows():

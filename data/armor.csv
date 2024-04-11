@@ -1,145 +1,145 @@
 ,item_name,name,armor,mitigation,recipe,craft_level,elec_res,fire_res,acid_res,cold_res,protection
-0,,{'str': 'pair of 2-by-arm guards', 'str_pl': 'pairs of 2-by-arm guards'},5.0,5.0,[[['2x4', 1]], [['rag', 1]]],1.0,6.0,3.0,12.0,1.0,0.8045284764677294
-1,,{'str': 'pair of chitin arm guards', 'str_pl': 'pairs of chitin arm guards'},6.0,3.0,[[['string_36', 1], ['string_6', 4]], [['chitin_piece', 4]], [['leather', 4]]],4.0,4.0,4.0,8.0,2.0,0.9589388235149408
-2,,{'str': 'pair of hard arm guards', 'str_pl': 'pairs of hard arm guards'},4.0,2.0,[[['neoprene', 6]], [['plastic_chunk', 8]]],4.0,6.0,3.0,2.0,4.0,0.7853765394575539
-3,,{'str': 'pair of leather arm guards', 'str_pl': 'pairs of leather arm guards'},7.0,6.0,[[['leather', 12], ['fur', 12]]],3.0,8.0,8.0,16.0,5.0,0.9218673301433409
-4,,{'str': 'pair of steel arm guards', 'str_pl': 'pairs of steel arm guards'},6.0,3.0,[[['steel_lump', 6], ['steel_chunk', 24]], [['fur', 6], ['leather', 6]]],7.0,4.0,4.0,8.0,4.0,0.9589388235149408
-5,,{'str': 'pair of metal arm guards', 'str_pl': 'pairs of metal arm guards'},6.0,8.0,[[['sheet_metal_small', 4]]],4.0,0.0,9.0,15.0,0.0,0.8437498577544102
-6,,{'str': 'pair of paper arm guards', 'str_pl': 'pairs of paper arm guards'},5.0,2.0,[[['paper', 60]], [['duct_tape', 10]]],0.0,6.0,0.0,3.0,1.0,0.8269925522934998
-7,,{'str': 'pair of scrap arm guards', 'str_pl': 'pairs of scrap arm guards'},5.0,3.0,[[['scrap', 60]]],3.0,0.0,3.0,5.0,4.0,0.8391145034718988
-8,,{'str': 'pair of neoprene arm sleeves', 'str_pl': 'pairs of neoprene arm sleeves'},3.0,1.0,[[['neoprene', 4]], [['rag', 2]]],3.0,2.0,0.0,3.0,4.0,0.5797038334615598
-9,,{'str': 'pair of chainmail sleeves', 'str_pl': 'pairs of chainmail sleeves'},5.0,1.0,[[['link_sheet', 3]], [['chain_link', 75]], [['wire', 1]], [['fur', 6], ['leather', 6]]],7.0,4.0,0.0,6.0,0.0,0.9189825631545554
-10,,{'str': 'pair of elbow pads', 'str_pl': 'pairs of elbow pads'},1.0,1.0,[[['plastic_chunk', 4]], [['rag', 2], ['leather', 2], ['fur', 2]]],4.0,5.0,0.0,8.0,0.0,0.34971547171515843
-11,,{'str': 'pair of leather vambraces', 'str_pl': 'pairs of leather vambraces'},3.0,4.0,[[['leather', 4], ['fur', 4]]],2.0,6.0,6.0,12.0,2.0,0.6047516168999946
-0,,{'str': 'pair of cord sandals', 'str_pl': 'pairs of cord sandals'},1,1,[[['filament', 140, 'LIST']]],2.0,4,0,6,0,0.4174436248007436
-1,,{'str': 'pair of boots', 'str_pl': 'pairs of boots'},6,3,[[['leather', 10]]],2.0,4,4,8,4.0,0.9192235675809233
-4,,{'str': 'pair of chitinous boots', 'str_pl': 'pairs of chitinous boots'},6,3,[[['chitin_piece', 16]], [['leather', 16]]],4.0,4,4,8,2.0,0.9589388235149408
-5,,{'str': 'pair of biosilicified chitin boots', 'str_pl': 'pairs of biosilicified chitin boots'},1,1,[[['acidchitin_piece', 16]], [['leather', 16]]],5.0,1,1,2,0,0.422050407130026
-7,,{'str': 'pair of survivor fireboots', 'str_pl': 'pairs of survivor fireboots'},6,2,[[['nomex', 8]], [['kevlar_plate', 4]], [['duct_tape', 200]], [['nomex_socks', 1]], [['boots_combat', 1], ['boots_steel', 1], ['boots_bunker', 1]]],8.0,10,50,12,3.0,0.9830669394949226
-8,,{'str': 'pair of fur boots', 'str_pl': 'pairs of fur boots'},5,2,[[['leather', 7]], [['fur', 7]]],2.0,3,2,4,12.0,0.9105420089451685
-9,,{'str': 'pair of survivor wetsuit boots', 'str_pl': 'pairs of survivor wetsuit boots'},5,1,[[['plastic_chunk', 4]], [['kevlar_plate', 4]], [['duct_tape', 200]], [['wetsuit_booties', 1]], [['boots_combat', 1], ['boots_steel', 1], ['boots_bunker', 1]]],7.0,4,2,1,3.0,0.8971623160916377
-11,,{'str': 'pair of heavy survivor boots', 'str_pl': 'pairs of heavy survivor boots'},10,14,[[['rag', 4]], [['leather', 4]], [['steel_chunk', 4], ['scrap', 12]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]],7.0,0,9,21,3.0,0.9999999999998004
-12,,{'str': 'pair of leather armor boots', 'str_pl': 'pairs of leather armor boots'},7,6,[[['leather', 18], ['fur', 18]]],2.0,8,8,16,5.0,0.9609333255769733
-13,,{'str': 'pair of light survivor boots', 'str_pl': 'pairs of light survivor boots'},6,2,[[['rag', 8]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]],5.0,5,0,8,3.0,0.9830669394949226
-14,,{'str': 'pair of armored boots', 'str_pl': 'pairs of armored boots'},6,3,[[['fur', 16], ['leather', 16]]],5.0,4,4,8,4.0,0.9984961995624084
-16,,{'str': 'pair of scrap boots', 'str_pl': 'pairs of scrap boots'},5,3,[[['scrap', 50]]],3.0,0,3,5,4.0,0.8391145034718988
-18,,{'str': 'pair of survivor boots', 'str_pl': 'pairs of survivor boots'},7,4,[[['leather', 8]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]],6.0,5,5,10,3.0,0.9997033967495939
-19,,{'str': 'pair of winter boots', 'str_pl': 'pairs of winter boots'},6,4,[[['felt_patch', 20]], [['bag_plastic', 8]]],6.0,6,3,27,16.0,0.9217322112860099
-20,,{'str': 'pair of winter survivor boots', 'str_pl': 'pairs of winter survivor boots'},7,4,[[['fur', 12]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]],7.0,6,3,9,15.0,0.9999415559500437
-21,,{'str': 'pair of XL survivor boots', 'str_pl': 'pairs of XL survivor boots'},6,3,[[['leather', 24]], [['rag', 6]], [['scrap', 4]], [['boots_combat', 2], ['kevlar_plate', 10]], [['duct_tape', 200]]],6.0,4,4,8,3.0,0.9984961995624084
-24,,{'str': 'pair of wooden clogs', 'str_pl': 'pairs of wooden clogs'},7,8,[[['2x4', 2], ['stick', 2]]],3.0,8,4,16,1.0,0.8828102685308136
-30,,{'str': 'pair of foot rags', 'str_pl': 'pairs of foot rags'},2,1,[[['rag', 6]]],0,2,0,3,1.0,0.5390504989850465
-31,,{'str': 'pair of fur foot wraps', 'str_pl': 'pairs of fur foot wraps'},3,1,[[['fur', 9], ['cured_pelt', 9]]],0,2,1,3,4.0,0.6481355904013375
-32,,{'str': 'pair of leather foot wraps', 'str_pl': 'pairs of leather foot wraps'},3,1,[[['leather', 9], ['cured_hide', 9]]],0,2,2,4,2.0,0.6481355904013375
-33,,{'str': 'pair of wool foot wraps', 'str_pl': 'pairs of wool foot wraps'},2,1,[[['felt_patch', 6]]],0,2,0,4,3.0,0.5390504989850465
-34,,{'str': 'pair of geta', 'str_pl': 'pairs of geta'},1,1,[[['2x4', 1]], [['cordage_short', 1, 'LIST']]],1.0,2,0,3,1.0,0.422050407130026
-37,,{'str': 'pair of leather sandals', 'str_pl': 'pairs of leather sandals'},0,1,[[['leather', 3]]],1.0,2,2,4,0,0.24636417536729308
-39,,{'str': 'pair of moccasins', 'str_pl': 'pairs of moccasins'},2,1,[[['fur', 2]]],1.0,2,2,4,4.0,0.5090862313587967
-43,,{'str': 'pair of birchbark shoes', 'str_pl': 'pairs of birchbark shoes'},2,2,[[['birchbark', 3]]],2.0,2,1,4,2.0,0.5297671124571691
-47,,{'str': 'pair of straw sandals', 'str_pl': 'pairs of straw sandals'},1,1,[[['straw_pile', 4], ['birchbark', 6]]],1.0,4,0,2,0,0.328997259715437
-48,,{'str': 'pair of swim fins', 'str_pl': 'pairs of swim fins'},5,3,[[['plastic_chunk', 8]], [['duct_tape', 80], ['medical_tape', 80]], [['superglue', 1]]],4.0,11,2,5,1.0,0.8489616969561065
-50,,{'str': 'pair of swimming booties', 'str_pl': 'pairs of swimming booties'},5,1,[[['neoprene', 2]], [['rag', 2]]],4.0,2,0,3,6.0,0.8354235591528972
-53,,{'str': 'pair of chainmail chausses', 'str_pl': 'pairs of chainmail chausses'},6,2,[[['link_sheet', 2]], [['chain_link', 50]], [['wire', 1]], [['rag', 4]]],7.0,4,0,6,0,0.9626417446613817
-55,,{'str': 'pair of flame-resistant socks', 'str_pl': 'pairs of flame-resistant socks'},6,2,[[['nomex', 9]]],6.0,8,40,10,1.0,0.9626417446613817
-56,,{'str': 'pair of socks', 'str_pl': 'pairs of socks'},5,1,[[['rag', 2]]],0,2,0,3,1.0,0.8354235591528972
-57,,{'str': 'pair of ankle socks', 'str_pl': 'pairs of ankle socks'},3,1,[[['rag', 2]]],0,2,0,3,0,0.6629986982129458
-58,,{'str': 'pair of bag socks', 'str_pl': 'pairs of bag socks'},3,1,[[['plastic_shopping_bag', 2]]],0,2,1,9,0,0.6942179389919524
-60,,{'str': 'pair of wool socks', 'str_pl': 'pairs of wool socks'},5,1,[[['yarn', 75]]],1.0,2,0,4,6.0,0.8354235591528972
-61,,{'str': 'pair of stockings', 'str_pl': 'pairs of stockings'},3,1,[[['rag', 8]]],1.0,2,0,3,2.0,0.621046441149333
-63,,{'str': 'pair of tabi', 'str_pl': 'pairs of tabi'},5,1,[[['rag', 3]]],1.0,2,0,3,1.0,0.8354235591528972
-2,,{'str': 'pair of chainmail gloves', 'str_pl': 'pairs of chainmail gloves'},6,2,[[['link_sheet', 2]], [['chain_link', 50]], [['wire', 1]], [['rag', 4]]],7.0,4,0,6,0,0.9626417446613817
-4,,{'str': 'pair of chitinous gauntlets', 'str_pl': 'pairs of chitinous gauntlets'},6,3,[[['cordage_superior', 1, 'LIST']], [['chitin_piece', 3]], [['leather', 3]]],4.0,4,4,8,2.0,0.9589388235149408
-5,,{'str': 'pair of biosilicified chitin gauntlets', 'str_pl': 'pairs of biosilicified chitin gauntlets'},1,1,[[['cordage_superior', 1, 'LIST']], [['acidchitin_piece', 3]], [['leather', 3]]],5.0,1,1,2,0,0.422050407130026
-8,,{'str': 'pair of leather armor gauntlets', 'str_pl': 'pairs of leather armor gauntlets'},4,5,[[['leather', 6], ['fur', 6]]],2.0,8,8,16,3.0,0.6872178325137407
-9,,{'str': 'pair of bag gloves', 'str_pl': 'pairs of bag gloves'},3,1,[[['plastic_shopping_bag', 2]]],0,2,1,9,0,0.6942179389919524
-10,,{'str': 'pair of fingerless gloves', 'str_pl': 'pairs of fingerless gloves'},2,1,[[['gloves_leather', 1]]],0,2,2,4,2.0,0.5090862313587967
-11,,{'str': 'pair of armored fingerless gloves', 'str_pl': 'pairs of armored fingerless gloves'},1,1,[[['gloves_fingerless', 1]], [['scrap', 2]]],1.0,1,1,2,1.0,0.422050407130026
-12,,{'str': 'pair of survivor firegloves', 'str_pl': 'pairs of survivor firegloves'},5,1,[[['nomex', 6]], [['leather', 2]], [['duct_tape', 120]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['nomex_gloves', 1], ['fire_gauntlets', 1]]],8.0,6,30,8,3.0,0.9195941544350218
-13,,{'str': 'pair of fur gloves', 'str_pl': 'pairs of fur gloves'},6,4,[[['fur', 4]]],2.0,6,3,9,14.0,0.9608460715787632
-14,,{'str': 'pair of heavy survivor gloves', 'str_pl': 'pairs of heavy survivor gloves'},8,9,[[['rag', 2]], [['leather', 2]], [['scrap', 4]], [['duct_tape', 50]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]],7.0,0,6,14,3.0,0.9999999965838937
-16,,{'str': 'pair of leather gloves', 'str_pl': 'pairs of leather gloves'},5,1,[[['leather', 2]]],2.0,2,2,4,5.0,0.9189825631545554
-17,,{'str': 'pair of light gloves', 'str_pl': 'pairs of light gloves'},5,1,[[['rag', 4]]],1.0,4,0,6,4.0,0.9189825631545554
-18,,{'str': 'pair of glove liners', 'str_pl': 'pairs of glove liners'},4,1,[[['rag', 2]]],1.0,2,0,3,3.0,0.791763577245784
-19,,{'str': 'pair of light survivor gloves', 'str_pl': 'pairs of light survivor gloves'},5,1,[[['rag', 6]], [['leather', 2]], [['duct_tape', 80]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]],5.0,3,0,4,3.0,0.9195941544350218
-20,,{'str': 'pair of fingerless survivor gloves', 'str_pl': 'pairs of fingerless survivor gloves'},4,1,[[['gloves_lsurvivor', 1]]],0,3,0,4,2.4,0.7840117422340773
-22,,{'str': 'pair of armored gauntlets', 'str_pl': 'pairs of armored gauntlets'},6,3,[[['fur', 10], ['leather', 10]]],6.0,4,4,8,4.0,0.9984961995624084
-24,,{'str': 'pair of survivor gloves', 'str_pl': 'pairs of survivor gloves'},6,2,[[['rag', 2]], [['leather', 6]], [['duct_tape', 80]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]],6.0,3,3,6,3.0,0.9924129097846065
-27,,{'str': 'pair of wool gloves', 'str_pl': 'pairs of wool gloves'},6,2,[[['felt_patch', 4]]],1.0,6,0,12,12.0,0.9516544014407398
-28,,{'str': 'pair of work gloves', 'str_pl': 'pairs of work gloves'},5,1,[[['leather', 2], ['gloves_leather', 1]], [['rag', 2], ['gloves_light', 1]]],2.0,3,0,4,5.0,0.8745607547862804
-30,,{'str': 'pair of hand wraps', 'str_pl': 'pairs of hand wraps'},1,1,[[['rag', 4]]],0,2,0,3,1.0,0.422050407130026
-31,,{'str': 'pair of fur hand wraps', 'str_pl': 'pairs of fur hand wraps'},2,1,[[['fur', 6], ['cured_pelt', 6]]],0,2,1,3,4.0,0.5090862313587967
-32,,{'str': 'pair of leather hand wraps', 'str_pl': 'pairs of leather hand wraps'},2,1,[[['leather', 6], ['cured_hide', 6]]],0,2,2,4,2.0,0.5090862313587967
-33,,{'str': 'pair of wool hand wraps', 'str_pl': 'pairs of wool hand wraps'},1,1,[[['felt_patch', 4]]],0,2,0,4,3.0,0.422050407130026
-34,,{'str': 'pair of winter survivor gloves', 'str_pl': 'pairs of winter survivor gloves'},6,3,[[['rag', 2]], [['fur', 8]], [['duct_tape', 80]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]],7.0,4,2,6,15.0,0.9984961995624084
-35,,{'str': 'pair of XL survivor gloves', 'str_pl': 'pairs of XL survivor gloves'},6,2,[[['leather', 16]], [['rag', 6]], [['scrap', 2]], [['duct_tape', 160]], [['gloves_tactical', 2], ['kevlar_plate', 6]]],6.0,2,2,4,3.0,0.9626417446613817
-37,,{'str': 'pair of mittens', 'str_pl': 'pairs of mittens'},6,3,[[['yarn', 250]]],1.0,8,0,16,14.0,0.9984961995624084
-38,,{'str': 'pair of flame-resistant gloves', 'str_pl': 'pairs of flame-resistant gloves'},6,2,[[['nomex', 6]]],6.0,8,40,10,1.0,0.9626417446613817
-39,,{'str': 'pair of sock mitts', 'str_pl': 'pairs of sock mitts'},1,1,[[['socks', 1]]],0,2,0,3,1.0,0.3490159151036652
-0,,{'str': 'pot helmet'},4,5,[[['rag', 4]], [['pot', 1]]],0,0,6,10,1.0,0.6479279874220983
-7,,{'str': 'barbute helm'},6,3,[[['fur', 4], ['leather', 4]]],6.0,4,4,8,2.0,0.9192235675809233
-9,,{'str': 'chitinous helmet'},6,3,[[['cordage_superior', 1, 'LIST']], [['chitin_piece', 6]], [['leather', 6]]],4.0,4,4,8,2.0,0.9589388235149408
-10,,{'str': 'conical helm'},5,2,[[['fur', 6]]],6.0,3,2,4,7.0,0.9105420089451685
-11,,{'str': 'biosilicified chitin helmet'},1,1,[[['cordage_superior', 1, 'LIST']], [['acidchitin_piece', 6]], [['leather', 6]]],5.0,1,1,2,0,0.422050407130026
-13,,{'str': 'galea', 'str_pl': 'galeae'},5,3,[[['fur', 4], ['leather', 4]]],7.0,4,4,8,2.0,0.8793025127710737
-14,,{'str': 'kabuto'},6,3,[[['fur', 14], ['leather', 14]], [['rag', 4]]],9.0,4,4,8,5.0,0.9589388235149408
-15,,{'str': 'leather armor helmet'},6,6,[[['leather', 16], ['fur', 16]]],4.0,8,8,16,2.0,0.8827984331778116
-20,,{'str': 'nasal helm'},5,3,[[['fur', 3], ['leather', 3]]],5.0,4,4,8,2.0,0.8391145034718988
-21,,{'str': 'nomad cowl'},6,2,[[['hat_ball', 1], ['hat_boonie', 1]], [['glasses_safety', 1], ['glasses_bal', 1]], [['leather', 8]]],5.0,3,3,6,7.0,0.9516544014407398
-22,,{'str': 'great helm', 'str_pl': 'great helmets'},7,4,[[['fur', 4], ['leather', 4]]],7.0,5,5,10,2.0,0.9997033967495939
-23,,{'str': 'scavenger cowl'},5,1,[[['hat_ball', 1], ['hat_boonie', 1]], [['mask_filter', 1]], [['glasses_bal', 1], ['goggles_ski', 1]], [['kevlar_plate', 8]]],8.0,3,0,4,8.0,0.9195941544350218
-24,,{'str': 'scrap helmet'},5,3,[[['scrap', 30]]],3.0,0,3,5,4.0,0.8391145034718988
-26,,{'str': 'survivor helmet'},7,4,[[['helmet_liner', 1], ['hat_cotton', 1], ['rag', 3]], [['tac_helmet', 1], ['tac_fullhelmet', 1], ['helmet_army', 1], ['kevlar_plate', 6]], [['hood_rain', 1], ['bag_plastic', 2]], [['leather', 8]], [['duct_tape', 150]], [['helmet_riot', 1], ['helmet_motor', 1], ['helmet_football', 1], ['helmet_ball', 1], ['helmet_skid', 1], ['helmet_bike', 1], ['hat_hard', 1], ['firehelmet', 1], ['pickelhaube', 1], ['plastic_chunk', 8]]],6.0,5,5,10,3.0,0.9997033967495939
-27,,{'str': 'XL survivor helmet'},6,3,[[['scrap', 4]], [['rag', 6]], [['leather', 16]], [['plastic_chunk', 20]], [['kevlar_plate', 14]], [['hood_rain', 2], ['bag_plastic', 4]], [['duct_tape', 300]]],6.0,4,4,8,3.0,0.9984961995624084
-28,,{'str': 'heavy survivor helmet'},10,14,[[['helmet_liner', 1], ['hat_cotton', 1], ['rag', 3]], [['helmet_army', 1]], [['hood_rain', 1], ['bag_plastic', 2]], [['steel_chunk', 2], ['scrap', 6]], [['duct_tape', 75]], [['helmet_riot', 1], ['helmet_motor', 1], ['helmet_football', 1], ['helmet_ball', 1], ['helmet_skid', 1], ['helmet_bike', 1], ['hat_hard', 1], ['firehelmet', 1], ['pickelhaube', 1], ['plastic_chunk', 8]]],7.0,0,9,21,5.0,0.9999999999998004
-30,,{'str': 'Corinthian helm'},7,9,[[['scrap_bronze', 7]], [['fur', 4], ['leather', 4]]],6.0,0,6,3,2.0,0.9218749988118261
-31,,{'str': 'XL pot helmet'},4,7,[[['rag', 10]], [['pot_canning', 1]]],0,0,6,14,1.0,0.6484232011602004
-0,,{'str': 'pair of 2-by-shin guards', 'str_pl': 'pairs of 2-by-shin guards'},5,5,[[['2x4', 1]], [['rag', 4]]],1.0,6,3,12,1.0,0.8045284764677294
-2,,{'str': 'chainmail leggings', 'str_pl': 'pairs of chainmail leggings'},5,1,[[['link_sheet', 4]], [['chain_link', 100]], [['wire', 1]], [['rag', 6]]],7.0,4,0,6,0,0.9189825631545554
-3,,{'str_sp': 'leather chaps'},4,4,[[['leather', 8]]],4.0,6,6,12,2.0,0.7252775036242268
-5,,{'str': 'pair of knee pads', 'str_pl': 'pairs of knee pads'},1,1,[[['plastic_chunk', 8]], [['rag', 4], ['leather', 4], ['fur', 4]]],4.0,5,0,8,0,0.34971547171515843
-6,,{'str': 'pair of bronze greaves', 'str_pl': 'pairs of bronze greaves'},4,3,[[['fur', 6], ['leather', 6]], [['scrap_bronze', 12]]],5.0,4,4,8,3.0,0.7576094005228933
-7,,{'str': 'pair of hard leg guards', 'str_pl': 'pairs of hard leg guards'},4,2,[[['neoprene', 6]], [['plastic_chunk', 8]]],3.0,8,4,2,4.0,0.7746257789072056
-8,,{'str': 'pair of steel leg guards', 'str_pl': 'pairs of steel leg guards'},6,3,[[['fur', 6], ['leather', 6]]],7.0,4,4,8,4.0,0.9589388235149408
-9,,{'str': 'pair of iron greaves', 'str_pl': 'pairs of iron greaves'},4,3,[[['fur', 6], ['leather', 6]]],5.0,4,4,8,2.0,0.7576094005228933
-10,,{'str': 'pair of paper leg guards', 'str_pl': 'pairs of paper leg guards'},5,2,[[['paper', 60]], [['duct_tape', 10]]],0,6,0,3,1.0,0.8269925522934998
-11,,{'str': 'pair of scrap leg guards', 'str_pl': 'pairs of scrap leg guards'},5,3,[[['scrap', 60]]],3.0,0,3,5,4.0,0.8391145034718988
-12,,{'str_sp': 'light survivor cargo pants'},5,1,[[['rag', 15]], [['bag_plastic', 4]], [['legrig', 1], ['tool_belt', 1], ['ragpouch', 4], ['leather_pouch', 2], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 50]], [['kevlar_plate', 8]]],5.0,3,0,4,2.4,0.8745607547862804
-14,,{'str_sp': 'survivor cargo pants'},7,4,[[['pants_army', 1], ['pants_cargo', 1], ['shorts_cargo', 1]], [['kevlar', 1], ['modularvest', 1], ['kevlar_plate', 12]], [['rag', 12]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 4], ['leather_pouch', 2], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 100]]],6.0,4,6,10,3.0,0.9999802121903528
-0,,{'str': 'AEP suit'},7,5,[[['cleansuit', 1]], [['duct_tape', 600]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]], [['plastic_sheet', 1]]],6.0,7,4,32,7.0,0.9999884861217404
-1,,{'str': 'ANBC suit'},7,5,[[['hazmat_suit', 1]], [['duct_tape', 800]], [['swat_armor', 1], ['kevlar_plate', 48]], [['plastic_sheet', 1]]],8.0,7,4,32,10.0,0.9999884861217404
-2,,{'str': 'boiled leather armor'},7,7,[[['water', 10], ['water_clean', 10]], [['wax', 2], ['any_tallow', 8, 'LIST'], ['vinegar', 10], ['pine_bough', 20]], [['salt', 50]], [['armor_larmor', 1]], [['armguard_larmor', 1]]],3.0,10,10,20,4.0,0.9218745880728922
-3,,{'str': 'chitinous armor'},6,3,[[['chitin_piece', 36]], [['leather', 36]]],4.0,4,4,8,2.0,0.9589388235149408
-4,,{'str': 'biosilicified chitin armor'},1,1,[[['acidchitin_piece', 36]], [['leather', 36]]],5.0,1,1,2,0,0.422050407130026
-5,,{'str': 'fur body armor'},7,6,[[['fur', 48]]],5.0,8,4,12,12.0,0.9218673301433409
-6,,{'str': 'leather body armor'},7,6,[[['leather', 30], ['fur', 30]]],5.0,8,8,16,5.0,0.9218673301433409
-7,,{'str': 'plate armor'},6,3,[[['fur', 20], ['leather', 20]]],8.0,4,4,8,4.0,0.9589388235149408
-8,,{'str': 'nomad gear'},6,4,[[['duster', 1]], [['vest', 1], ['tacvest', 1]], [['ragpouch', 1], ['leather_pouch', 1], ['dump_pouch', 1], ['fanny', 1]], [['tool_belt', 1], ['legrig', 1]], [['pants_cargo', 1], ['pants_army', 1]], [['leather', 24]]],5.0,5,5,10,8.0,0.9605097487586847
-9,,{'str': 'light nomad gear'},5,3,[[['tunic', 1]], [['shorts_cargo', 1], ['shorts_denim', 1]], [['vest', 1], ['tacvest', 1]], [['ragpouch', 2], ['dump_pouch', 2], ['fanny', 2]], [['tool_belt', 1], ['legrig', 1]], [['rag', 20]]],4.0,8,0,12,2.0,0.8391145034718988
-10,,{'str': 'plated leather armor'},7,6,[[['steel_chunk', 6], ['scrap', 18]], [['armor_larmor', 1]], [['armguard_larmor', 1]]],2.0,0,6,10,5.0,0.9218673301433409
-11,,{'str': 'ornamental plate armor'},6,4,[[['fur', 16], ['leather', 16]]],9.0,5,5,10,4.0,0.9212591767357721
-13,,{'str': 'O-yoroi'},5,3,[[['fur', 28], ['leather', 28]], [['rag', 10]]],9.0,4,4,8,5.0,0.8793025127710737
-14,,{'str': 'scavenger gear'},6,2,[[['jacket_army', 1]], [['vest', 1], ['tacvest', 1], ['mbag', 1], ['runner_bag', 1]], [['fanny', 2], ['dump_pouch', 1]], [['tool_belt', 1], ['legrig', 1]], [['pants_army', 1]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],8.0,5,0,8,8.0,0.9830669394949226
-15,,{'str': 'scrap suit'},5,3,[[['scrap', 170]]],3.0,0,3,5,4.0,0.8391145034718988
-17,,{'str': 'chainmail hauberk'},6,2,[[['chainmail_vest', 1]], [['chainmail_arms', 1]], [['chainmail_legs', 1]], [['gambeson', 1]]],2.0,6,0,9,6.0,0.9516544014407398
-18,,{'str': 'chainmail armor'},6,2,[[['chainmail_hood', 1]], [['chainmail_vest', 1]], [['chainmail_arms', 1]], [['chainmail_legs', 1]], [['gambeson', 1]]],3.0,6,0,9,6.0,0.9516544014407398
-19,,{'str': 'faraday chainmail suit'},6,2,[[['link_sheet', 2], ['chainmail_hood', 1]], [['link_sheet', 7], ['chainmail_vest', 1]], [['link_sheet', 3], ['chainmail_arms', 1]], [['link_sheet', 4], ['chainmail_legs', 1]], [['link_sheet', 2], ['chainmail_hands', 1]], [['link_sheet', 2], ['chainmail_feet', 1]], [['chain_link', 500]], [['wire', 5]], [['rag', 26]]],7.0,4,0,6,0,0.9626417446613817
-21,,{'str': 'entry suit'},7,5,[[['nomex', 40]], [['kevlar_plate', 8]], [['duct_tape', 200], ['superglue', 5]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],6.0,5,8,12,6.0,0.9999986802024311
-22,,{'str': 'survivor firesuit'},6,2,[[['rag', 4]], [['nomex_suit', 1], ['entry_suit', 1], ['nomex', 20]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 200]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],8.0,8,40,10,3.0,0.9626417446613817
-23,,{'str': 'gambeson'},6,4,[[['rag', 26]]],4.0,10,0,15,6.0,0.9212591767357721
-25,,{'str': 'heavy survivor suit'},6,3,[[['rag', 20]], [['leather', 20]], [['steel_chunk', 4], ['scrap', 12]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 300]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],7.0,4,4,8,3.0,0.9984961995624084
-26,,{'str': 'light survivor suit'},6,2,[[['rag', 30]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 200]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],5.0,4,0,6,3.0,0.9626417446613817
-27,,{'str': 'flame-resistant suit'},6,2,[[['nomex', 18]]],6.0,8,40,10,1.0,0.9626417446613817
-31,,{'str': 'survivor suit'},6,3,[[['rag', 20]], [['leather', 20]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 300]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],6.0,4,4,8,3.0,0.9984961995624084
-34,,{'str': 'winter survivor suit'},7,4,[[['rag', 10]], [['leather', 20]], [['fur', 20]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 300]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]],6.0,5,2,8,15.0,0.9997033967495939
-35,,{'str': 'XL survivor suit'},6,3,[[['rag', 30]], [['leather', 40]], [['scrap', 8]], [['coat_rain', 2], ['jacket_windbreaker', 2], ['jacket_evac', 2], ['coat_gut', 2]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 400]], [['kevlar', 2], ['modularvest', 2], ['swat_armor', 2], ['kevlar_plate', 42]]],6.0,4,4,8,3.0,0.9984961995624084
-36,,{'str': 'XL heavy survivor suit'},6,3,[[['rag', 30]], [['leather', 40]], [['steel_chunk', 8], ['scrap', 24]], [['coat_rain', 2], ['jacket_windbreaker', 2], ['jacket_evac', 2], ['coat_gut', 2]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 400]], [['kevlar', 2], ['modularvest', 2], ['swat_armor', 2], ['kevlar_plate', 48]]],8.0,4,4,8,3.0,0.9984961995624084
-0,,{'str': 'bell cuirass', 'str_pl': 'bell cuirasses'},7,9,[[['scrap_bronze', 28]]],5.0,0,6,3,3.0,0.9218749988118261
-1,,{'str': 'lamellar cuirass', 'str_pl': 'lamellar cuirasses'},5,3,[[['cordage_superior', 4, 'LIST']], [['rag', 4]], [['leather', 42], ['fur', 42]]],3.0,8,0,12,4.0,0.8391145034718988
-2,,{'str_sp': 'lorica segmentata'},6,3,[[['fur', 12], ['leather', 12]]],7.0,4,4,8,3.0,0.9192235675809233
-3,,{'str': 'bookplate'},6,8,[[['paper', 1200]], [['duct_tape', 150]]],3.0,24,0,12,2.0,0.8437498577544102
-4,,{'str': 'chainmail vest'},5,1,[[['link_sheet', 7]], [['chain_link', 175]], [['wire', 1]], [['rag', 6]]],7.0,4,0,6,0,0.9189825631545554
-6,,{'str': 'cuirass', 'str_pl': 'cuirasses'},6,3,[[['fur', 6], ['leather', 6]]],8.0,4,4,8,4.0,0.9589388235149408
-7,,{'str': 'scrap cuirass', 'str_pl': 'scrap cuirasses'},5,3,[[['scrap', 80]]],3.0,0,3,5,4.0,0.8391145034718988
-9,,{'str': 'armored leather jacket'},6,4,[[['jacket_leather', 1], ['jacket_leather_red', 1]], [['scrap', 9]]],3.0,0,4,8,6.0,0.8825899078777317
-15,,{'str': 'light survivor body armor'},5,1,[[['rag', 15]], [['coat_rain', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 2], ['leather_pouch', 2], ['dump_pouch', 1], ['purse', 1], ['fanny', 1]], [['duct_tape', 150]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 16]]],5.0,4,0,6,3.0,0.9189825631545554
-19,,{'str': 'armored leather vest'},6,4,[[['vest_leather', 1]], [['scrap', 5]]],3.0,0,4,8,6.0,0.9217322112860099
+0,,"{'str': 'pair of 2-by-arm guards', 'str_pl': 'pairs of 2-by-arm guards'}",5.0,5.0,"[[['2x4', 1]], [['rag', 1]]]",1.0,6.0,3.0,12.0,1.0,0.8045284764677294
+1,,"{'str': 'pair of chitin arm guards', 'str_pl': 'pairs of chitin arm guards'}",6.0,3.0,"[[['string_36', 1], ['string_6', 4]], [['chitin_piece', 4]], [['leather', 4]]]",4.0,4.0,4.0,8.0,2.0,0.9589388235149408
+2,,"{'str': 'pair of hard arm guards', 'str_pl': 'pairs of hard arm guards'}",4.0,2.0,"[[['neoprene', 6]], [['plastic_chunk', 8]]]",4.0,6.0,3.0,2.0,4.0,0.7853765394575539
+3,,"{'str': 'pair of leather arm guards', 'str_pl': 'pairs of leather arm guards'}",7.0,6.0,"[[['leather', 12], ['fur', 12]]]",3.0,8.0,8.0,16.0,5.0,0.9218673301433409
+4,,"{'str': 'pair of steel arm guards', 'str_pl': 'pairs of steel arm guards'}",6.0,3.0,"[[['steel_lump', 6], ['steel_chunk', 24]], [['fur', 6], ['leather', 6]]]",7.0,4.0,4.0,8.0,4.0,0.9589388235149408
+5,,"{'str': 'pair of metal arm guards', 'str_pl': 'pairs of metal arm guards'}",6.0,8.0,"[[['sheet_metal_small', 4]]]",4.0,0.0,9.0,15.0,0.0,0.8437498577544102
+6,,"{'str': 'pair of paper arm guards', 'str_pl': 'pairs of paper arm guards'}",5.0,2.0,"[[['paper', 60]], [['duct_tape', 10]]]",0.0,6.0,0.0,3.0,1.0,0.8269925522934998
+7,,"{'str': 'pair of scrap arm guards', 'str_pl': 'pairs of scrap arm guards'}",5.0,3.0,"[[['scrap', 60]]]",3.0,0.0,3.0,5.0,4.0,0.8391145034718988
+8,,"{'str': 'pair of neoprene arm sleeves', 'str_pl': 'pairs of neoprene arm sleeves'}",3.0,1.0,"[[['neoprene', 4]], [['rag', 2]]]",3.0,2.0,0.0,3.0,4.0,0.5797038334615598
+9,,"{'str': 'pair of chainmail sleeves', 'str_pl': 'pairs of chainmail sleeves'}",5.0,1.0,"[[['link_sheet', 3]], [['chain_link', 75]], [['wire', 1]], [['fur', 6], ['leather', 6]]]",7.0,4.0,0.0,6.0,0.0,0.9189825631545554
+10,,"{'str': 'pair of elbow pads', 'str_pl': 'pairs of elbow pads'}",1.0,1.0,"[[['plastic_chunk', 4]], [['rag', 2], ['leather', 2], ['fur', 2]]]",4.0,5.0,0.0,8.0,0.0,0.34971547171515843
+11,,"{'str': 'pair of leather vambraces', 'str_pl': 'pairs of leather vambraces'}",3.0,4.0,"[[['leather', 4], ['fur', 4]]]",2.0,6.0,6.0,12.0,2.0,0.6047516168999946
+0,,"{'str': 'pair of cord sandals', 'str_pl': 'pairs of cord sandals'}",1,1,"[[['filament', 140, 'LIST']]]",2.0,4,0,6,0,0.4174436248007436
+1,,"{'str': 'pair of boots', 'str_pl': 'pairs of boots'}",6,3,"[[['leather', 10]]]",2.0,4,4,8,4.0,0.9192235675809233
+4,,"{'str': 'pair of chitinous boots', 'str_pl': 'pairs of chitinous boots'}",6,3,"[[['chitin_piece', 16]], [['leather', 16]]]",4.0,4,4,8,2.0,0.9589388235149408
+5,,"{'str': 'pair of biosilicified chitin boots', 'str_pl': 'pairs of biosilicified chitin boots'}",1,1,"[[['acidchitin_piece', 16]], [['leather', 16]]]",5.0,1,1,2,0,0.422050407130026
+7,,"{'str': 'pair of survivor fireboots', 'str_pl': 'pairs of survivor fireboots'}",6,2,"[[['nomex', 8]], [['kevlar_plate', 4]], [['duct_tape', 200]], [['nomex_socks', 1]], [['boots_combat', 1], ['boots_steel', 1], ['boots_bunker', 1]]]",8.0,10,50,12,3.0,0.9830669394949226
+8,,"{'str': 'pair of fur boots', 'str_pl': 'pairs of fur boots'}",5,2,"[[['leather', 7]], [['fur', 7]]]",2.0,3,2,4,12.0,0.9105420089451685
+9,,"{'str': 'pair of survivor wetsuit boots', 'str_pl': 'pairs of survivor wetsuit boots'}",5,1,"[[['plastic_chunk', 4]], [['kevlar_plate', 4]], [['duct_tape', 200]], [['wetsuit_booties', 1]], [['boots_combat', 1], ['boots_steel', 1], ['boots_bunker', 1]]]",7.0,4,2,1,3.0,0.8971623160916377
+11,,"{'str': 'pair of heavy survivor boots', 'str_pl': 'pairs of heavy survivor boots'}",10,14,"[[['rag', 4]], [['leather', 4]], [['steel_chunk', 4], ['scrap', 12]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]]",7.0,0,9,21,3.0,0.9999999999998004
+12,,"{'str': 'pair of leather armor boots', 'str_pl': 'pairs of leather armor boots'}",7,6,"[[['leather', 18], ['fur', 18]]]",2.0,8,8,16,5.0,0.9609333255769733
+13,,"{'str': 'pair of light survivor boots', 'str_pl': 'pairs of light survivor boots'}",6,2,"[[['rag', 8]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]]",5.0,5,0,8,3.0,0.9830669394949226
+14,,"{'str': 'pair of armored boots', 'str_pl': 'pairs of armored boots'}",6,3,"[[['fur', 16], ['leather', 16]]]",5.0,4,4,8,4.0,0.9984961995624084
+16,,"{'str': 'pair of scrap boots', 'str_pl': 'pairs of scrap boots'}",5,3,"[[['scrap', 50]]]",3.0,0,3,5,4.0,0.8391145034718988
+18,,"{'str': 'pair of survivor boots', 'str_pl': 'pairs of survivor boots'}",7,4,"[[['leather', 8]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]]",6.0,5,5,10,3.0,0.9997033967495939
+19,,"{'str': 'pair of winter boots', 'str_pl': 'pairs of winter boots'}",6,4,"[[['felt_patch', 20]], [['bag_plastic', 8]]]",6.0,6,3,27,16.0,0.9217322112860099
+20,,"{'str': 'pair of winter survivor boots', 'str_pl': 'pairs of winter survivor boots'}",7,4,"[[['fur', 12]], [['kevlar_plate', 4]], [['duct_tape', 100]], [['boots_combat', 1], ['boots_steel', 1], ['boots_hiking', 1], ['boots_bunker', 1], ['boots', 1]]]",7.0,6,3,9,15.0,0.9999415559500437
+21,,"{'str': 'pair of XL survivor boots', 'str_pl': 'pairs of XL survivor boots'}",6,3,"[[['leather', 24]], [['rag', 6]], [['scrap', 4]], [['boots_combat', 2], ['kevlar_plate', 10]], [['duct_tape', 200]]]",6.0,4,4,8,3.0,0.9984961995624084
+24,,"{'str': 'pair of wooden clogs', 'str_pl': 'pairs of wooden clogs'}",7,8,"[[['2x4', 2], ['stick', 2]]]",3.0,8,4,16,1.0,0.8828102685308136
+30,,"{'str': 'pair of foot rags', 'str_pl': 'pairs of foot rags'}",2,1,"[[['rag', 6]]]",0,2,0,3,1.0,0.5390504989850465
+31,,"{'str': 'pair of fur foot wraps', 'str_pl': 'pairs of fur foot wraps'}",3,1,"[[['fur', 9], ['cured_pelt', 9]]]",0,2,1,3,4.0,0.6481355904013375
+32,,"{'str': 'pair of leather foot wraps', 'str_pl': 'pairs of leather foot wraps'}",3,1,"[[['leather', 9], ['cured_hide', 9]]]",0,2,2,4,2.0,0.6481355904013375
+33,,"{'str': 'pair of wool foot wraps', 'str_pl': 'pairs of wool foot wraps'}",2,1,"[[['felt_patch', 6]]]",0,2,0,4,3.0,0.5390504989850465
+34,,"{'str': 'pair of geta', 'str_pl': 'pairs of geta'}",1,1,"[[['2x4', 1]], [['cordage_short', 1, 'LIST']]]",1.0,2,0,3,1.0,0.422050407130026
+37,,"{'str': 'pair of leather sandals', 'str_pl': 'pairs of leather sandals'}",0,1,"[[['leather', 3]]]",1.0,2,2,4,0,0.24636417536729308
+39,,"{'str': 'pair of moccasins', 'str_pl': 'pairs of moccasins'}",2,1,"[[['fur', 2]]]",1.0,2,2,4,4.0,0.5090862313587967
+43,,"{'str': 'pair of birchbark shoes', 'str_pl': 'pairs of birchbark shoes'}",2,2,"[[['birchbark', 3]]]",2.0,2,1,4,2.0,0.5297671124571691
+47,,"{'str': 'pair of straw sandals', 'str_pl': 'pairs of straw sandals'}",1,1,"[[['straw_pile', 4], ['birchbark', 6]]]",1.0,4,0,2,0,0.328997259715437
+48,,"{'str': 'pair of swim fins', 'str_pl': 'pairs of swim fins'}",5,3,"[[['plastic_chunk', 8]], [['duct_tape', 80], ['medical_tape', 80]], [['superglue', 1]]]",4.0,11,2,5,1.0,0.8489616969561065
+50,,"{'str': 'pair of swimming booties', 'str_pl': 'pairs of swimming booties'}",5,1,"[[['neoprene', 2]], [['rag', 2]]]",4.0,2,0,3,6.0,0.8354235591528972
+53,,"{'str': 'pair of chainmail chausses', 'str_pl': 'pairs of chainmail chausses'}",6,2,"[[['link_sheet', 2]], [['chain_link', 50]], [['wire', 1]], [['rag', 4]]]",7.0,4,0,6,0,0.9626417446613817
+55,,"{'str': 'pair of flame-resistant socks', 'str_pl': 'pairs of flame-resistant socks'}",6,2,"[[['nomex', 9]]]",6.0,8,40,10,1.0,0.9626417446613817
+56,,"{'str': 'pair of socks', 'str_pl': 'pairs of socks'}",5,1,"[[['rag', 2]]]",0,2,0,3,1.0,0.8354235591528972
+57,,"{'str': 'pair of ankle socks', 'str_pl': 'pairs of ankle socks'}",3,1,"[[['rag', 2]]]",0,2,0,3,0,0.6629986982129458
+58,,"{'str': 'pair of bag socks', 'str_pl': 'pairs of bag socks'}",3,1,"[[['plastic_shopping_bag', 2]]]",0,2,1,9,0,0.6942179389919524
+60,,"{'str': 'pair of wool socks', 'str_pl': 'pairs of wool socks'}",5,1,"[[['yarn', 75]]]",1.0,2,0,4,6.0,0.8354235591528972
+61,,"{'str': 'pair of stockings', 'str_pl': 'pairs of stockings'}",3,1,"[[['rag', 8]]]",1.0,2,0,3,2.0,0.621046441149333
+63,,"{'str': 'pair of tabi', 'str_pl': 'pairs of tabi'}",5,1,"[[['rag', 3]]]",1.0,2,0,3,1.0,0.8354235591528972
+2,,"{'str': 'pair of chainmail gloves', 'str_pl': 'pairs of chainmail gloves'}",6,2,"[[['link_sheet', 2]], [['chain_link', 50]], [['wire', 1]], [['rag', 4]]]",7.0,4,0,6,0,0.9626417446613817
+4,,"{'str': 'pair of chitinous gauntlets', 'str_pl': 'pairs of chitinous gauntlets'}",6,3,"[[['cordage_superior', 1, 'LIST']], [['chitin_piece', 3]], [['leather', 3]]]",4.0,4,4,8,2.0,0.9589388235149408
+5,,"{'str': 'pair of biosilicified chitin gauntlets', 'str_pl': 'pairs of biosilicified chitin gauntlets'}",1,1,"[[['cordage_superior', 1, 'LIST']], [['acidchitin_piece', 3]], [['leather', 3]]]",5.0,1,1,2,0,0.422050407130026
+8,,"{'str': 'pair of leather armor gauntlets', 'str_pl': 'pairs of leather armor gauntlets'}",4,5,"[[['leather', 6], ['fur', 6]]]",2.0,8,8,16,3.0,0.6872178325137407
+9,,"{'str': 'pair of bag gloves', 'str_pl': 'pairs of bag gloves'}",3,1,"[[['plastic_shopping_bag', 2]]]",0,2,1,9,0,0.6942179389919524
+10,,"{'str': 'pair of fingerless gloves', 'str_pl': 'pairs of fingerless gloves'}",2,1,"[[['gloves_leather', 1]]]",0,2,2,4,2.0,0.5090862313587967
+11,,"{'str': 'pair of armored fingerless gloves', 'str_pl': 'pairs of armored fingerless gloves'}",1,1,"[[['gloves_fingerless', 1]], [['scrap', 2]]]",1.0,1,1,2,1.0,0.422050407130026
+12,,"{'str': 'pair of survivor firegloves', 'str_pl': 'pairs of survivor firegloves'}",5,1,"[[['nomex', 6]], [['leather', 2]], [['duct_tape', 120]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['nomex_gloves', 1], ['fire_gauntlets', 1]]]",8.0,6,30,8,3.0,0.9195941544350218
+13,,"{'str': 'pair of fur gloves', 'str_pl': 'pairs of fur gloves'}",6,4,"[[['fur', 4]]]",2.0,6,3,9,14.0,0.9608460715787632
+14,,"{'str': 'pair of heavy survivor gloves', 'str_pl': 'pairs of heavy survivor gloves'}",8,9,"[[['rag', 2]], [['leather', 2]], [['scrap', 4]], [['duct_tape', 50]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]]",7.0,0,6,14,3.0,0.9999999965838937
+16,,"{'str': 'pair of leather gloves', 'str_pl': 'pairs of leather gloves'}",5,1,"[[['leather', 2]]]",2.0,2,2,4,5.0,0.9189825631545554
+17,,"{'str': 'pair of light gloves', 'str_pl': 'pairs of light gloves'}",5,1,"[[['rag', 4]]]",1.0,4,0,6,4.0,0.9189825631545554
+18,,"{'str': 'pair of glove liners', 'str_pl': 'pairs of glove liners'}",4,1,"[[['rag', 2]]]",1.0,2,0,3,3.0,0.791763577245784
+19,,"{'str': 'pair of light survivor gloves', 'str_pl': 'pairs of light survivor gloves'}",5,1,"[[['rag', 6]], [['leather', 2]], [['duct_tape', 80]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]]",5.0,3,0,4,3.0,0.9195941544350218
+20,,"{'str': 'pair of fingerless survivor gloves', 'str_pl': 'pairs of fingerless survivor gloves'}",4,1,"[[['gloves_lsurvivor', 1]]]",0,3,0,4,2.4,0.7840117422340773
+22,,"{'str': 'pair of armored gauntlets', 'str_pl': 'pairs of armored gauntlets'}",6,3,"[[['fur', 10], ['leather', 10]]]",6.0,4,4,8,4.0,0.9984961995624084
+24,,"{'str': 'pair of survivor gloves', 'str_pl': 'pairs of survivor gloves'}",6,2,"[[['rag', 2]], [['leather', 6]], [['duct_tape', 80]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]]",6.0,3,3,6,3.0,0.9924129097846065
+27,,"{'str': 'pair of wool gloves', 'str_pl': 'pairs of wool gloves'}",6,2,"[[['felt_patch', 4]]]",1.0,6,0,12,12.0,0.9516544014407398
+28,,"{'str': 'pair of work gloves', 'str_pl': 'pairs of work gloves'}",5,1,"[[['leather', 2], ['gloves_leather', 1]], [['rag', 2], ['gloves_light', 1]]]",2.0,3,0,4,5.0,0.8745607547862804
+30,,"{'str': 'pair of hand wraps', 'str_pl': 'pairs of hand wraps'}",1,1,"[[['rag', 4]]]",0,2,0,3,1.0,0.422050407130026
+31,,"{'str': 'pair of fur hand wraps', 'str_pl': 'pairs of fur hand wraps'}",2,1,"[[['fur', 6], ['cured_pelt', 6]]]",0,2,1,3,4.0,0.5090862313587967
+32,,"{'str': 'pair of leather hand wraps', 'str_pl': 'pairs of leather hand wraps'}",2,1,"[[['leather', 6], ['cured_hide', 6]]]",0,2,2,4,2.0,0.5090862313587967
+33,,"{'str': 'pair of wool hand wraps', 'str_pl': 'pairs of wool hand wraps'}",1,1,"[[['felt_patch', 4]]]",0,2,0,4,3.0,0.422050407130026
+34,,"{'str': 'pair of winter survivor gloves', 'str_pl': 'pairs of winter survivor gloves'}",6,3,"[[['rag', 2]], [['fur', 8]], [['duct_tape', 80]], [['gloves_tactical', 1], ['kevlar_plate', 4]], [['gloves_leather', 1], ['gloves_light', 1], ['gloves_liner', 1], ['wetsuit_gloves', 1], ['fire_gauntlets', 1]]]",7.0,4,2,6,15.0,0.9984961995624084
+35,,"{'str': 'pair of XL survivor gloves', 'str_pl': 'pairs of XL survivor gloves'}",6,2,"[[['leather', 16]], [['rag', 6]], [['scrap', 2]], [['duct_tape', 160]], [['gloves_tactical', 2], ['kevlar_plate', 6]]]",6.0,2,2,4,3.0,0.9626417446613817
+37,,"{'str': 'pair of mittens', 'str_pl': 'pairs of mittens'}",6,3,"[[['yarn', 250]]]",1.0,8,0,16,14.0,0.9984961995624084
+38,,"{'str': 'pair of flame-resistant gloves', 'str_pl': 'pairs of flame-resistant gloves'}",6,2,"[[['nomex', 6]]]",6.0,8,40,10,1.0,0.9626417446613817
+39,,"{'str': 'pair of sock mitts', 'str_pl': 'pairs of sock mitts'}",1,1,"[[['socks', 1]]]",0,2,0,3,1.0,0.3490159151036652
+0,,{'str': 'pot helmet'},4,5,"[[['rag', 4]], [['pot', 1]]]",0,0,6,10,1.0,0.6479279874220983
+7,,{'str': 'barbute helm'},6,3,"[[['fur', 4], ['leather', 4]]]",6.0,4,4,8,2.0,0.9192235675809233
+9,,{'str': 'chitinous helmet'},6,3,"[[['cordage_superior', 1, 'LIST']], [['chitin_piece', 6]], [['leather', 6]]]",4.0,4,4,8,2.0,0.9589388235149408
+10,,{'str': 'conical helm'},5,2,"[[['fur', 6]]]",6.0,3,2,4,7.0,0.9105420089451685
+11,,{'str': 'biosilicified chitin helmet'},1,1,"[[['cordage_superior', 1, 'LIST']], [['acidchitin_piece', 6]], [['leather', 6]]]",5.0,1,1,2,0,0.422050407130026
+13,,"{'str': 'galea', 'str_pl': 'galeae'}",5,3,"[[['fur', 4], ['leather', 4]]]",7.0,4,4,8,2.0,0.8793025127710737
+14,,{'str': 'kabuto'},6,3,"[[['fur', 14], ['leather', 14]], [['rag', 4]]]",9.0,4,4,8,5.0,0.9589388235149408
+15,,{'str': 'leather armor helmet'},6,6,"[[['leather', 16], ['fur', 16]]]",4.0,8,8,16,2.0,0.8827984331778116
+20,,{'str': 'nasal helm'},5,3,"[[['fur', 3], ['leather', 3]]]",5.0,4,4,8,2.0,0.8391145034718988
+21,,{'str': 'nomad cowl'},6,2,"[[['hat_ball', 1], ['hat_boonie', 1]], [['glasses_safety', 1], ['glasses_bal', 1]], [['leather', 8]]]",5.0,3,3,6,7.0,0.9516544014407398
+22,,"{'str': 'great helm', 'str_pl': 'great helmets'}",7,4,"[[['fur', 4], ['leather', 4]]]",7.0,5,5,10,2.0,0.9997033967495939
+23,,{'str': 'scavenger cowl'},5,1,"[[['hat_ball', 1], ['hat_boonie', 1]], [['mask_filter', 1]], [['glasses_bal', 1], ['goggles_ski', 1]], [['kevlar_plate', 8]]]",8.0,3,0,4,8.0,0.9195941544350218
+24,,{'str': 'scrap helmet'},5,3,"[[['scrap', 30]]]",3.0,0,3,5,4.0,0.8391145034718988
+26,,{'str': 'survivor helmet'},7,4,"[[['helmet_liner', 1], ['hat_cotton', 1], ['rag', 3]], [['tac_helmet', 1], ['tac_fullhelmet', 1], ['helmet_army', 1], ['kevlar_plate', 6]], [['hood_rain', 1], ['bag_plastic', 2]], [['leather', 8]], [['duct_tape', 150]], [['helmet_riot', 1], ['helmet_motor', 1], ['helmet_football', 1], ['helmet_ball', 1], ['helmet_skid', 1], ['helmet_bike', 1], ['hat_hard', 1], ['firehelmet', 1], ['pickelhaube', 1], ['plastic_chunk', 8]]]",6.0,5,5,10,3.0,0.9997033967495939
+27,,{'str': 'XL survivor helmet'},6,3,"[[['scrap', 4]], [['rag', 6]], [['leather', 16]], [['plastic_chunk', 20]], [['kevlar_plate', 14]], [['hood_rain', 2], ['bag_plastic', 4]], [['duct_tape', 300]]]",6.0,4,4,8,3.0,0.9984961995624084
+28,,{'str': 'heavy survivor helmet'},10,14,"[[['helmet_liner', 1], ['hat_cotton', 1], ['rag', 3]], [['helmet_army', 1]], [['hood_rain', 1], ['bag_plastic', 2]], [['steel_chunk', 2], ['scrap', 6]], [['duct_tape', 75]], [['helmet_riot', 1], ['helmet_motor', 1], ['helmet_football', 1], ['helmet_ball', 1], ['helmet_skid', 1], ['helmet_bike', 1], ['hat_hard', 1], ['firehelmet', 1], ['pickelhaube', 1], ['plastic_chunk', 8]]]",7.0,0,9,21,5.0,0.9999999999998004
+30,,{'str': 'Corinthian helm'},7,9,"[[['scrap_bronze', 7]], [['fur', 4], ['leather', 4]]]",6.0,0,6,3,2.0,0.9218749988118261
+31,,{'str': 'XL pot helmet'},4,7,"[[['rag', 10]], [['pot_canning', 1]]]",0,0,6,14,1.0,0.6484232011602004
+0,,"{'str': 'pair of 2-by-shin guards', 'str_pl': 'pairs of 2-by-shin guards'}",5,5,"[[['2x4', 1]], [['rag', 4]]]",1.0,6,3,12,1.0,0.8045284764677294
+2,,"{'str': 'chainmail leggings', 'str_pl': 'pairs of chainmail leggings'}",5,1,"[[['link_sheet', 4]], [['chain_link', 100]], [['wire', 1]], [['rag', 6]]]",7.0,4,0,6,0,0.9189825631545554
+3,,{'str_sp': 'leather chaps'},4,4,"[[['leather', 8]]]",4.0,6,6,12,2.0,0.7252775036242268
+5,,"{'str': 'pair of knee pads', 'str_pl': 'pairs of knee pads'}",1,1,"[[['plastic_chunk', 8]], [['rag', 4], ['leather', 4], ['fur', 4]]]",4.0,5,0,8,0,0.34971547171515843
+6,,"{'str': 'pair of bronze greaves', 'str_pl': 'pairs of bronze greaves'}",4,3,"[[['fur', 6], ['leather', 6]], [['scrap_bronze', 12]]]",5.0,4,4,8,3.0,0.7576094005228933
+7,,"{'str': 'pair of hard leg guards', 'str_pl': 'pairs of hard leg guards'}",4,2,"[[['neoprene', 6]], [['plastic_chunk', 8]]]",3.0,8,4,2,4.0,0.7746257789072056
+8,,"{'str': 'pair of steel leg guards', 'str_pl': 'pairs of steel leg guards'}",6,3,"[[['fur', 6], ['leather', 6]]]",7.0,4,4,8,4.0,0.9589388235149408
+9,,"{'str': 'pair of iron greaves', 'str_pl': 'pairs of iron greaves'}",4,3,"[[['fur', 6], ['leather', 6]]]",5.0,4,4,8,2.0,0.7576094005228933
+10,,"{'str': 'pair of paper leg guards', 'str_pl': 'pairs of paper leg guards'}",5,2,"[[['paper', 60]], [['duct_tape', 10]]]",0,6,0,3,1.0,0.8269925522934998
+11,,"{'str': 'pair of scrap leg guards', 'str_pl': 'pairs of scrap leg guards'}",5,3,"[[['scrap', 60]]]",3.0,0,3,5,4.0,0.8391145034718988
+12,,{'str_sp': 'light survivor cargo pants'},5,1,"[[['rag', 15]], [['bag_plastic', 4]], [['legrig', 1], ['tool_belt', 1], ['ragpouch', 4], ['leather_pouch', 2], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 50]], [['kevlar_plate', 8]]]",5.0,3,0,4,2.4,0.8745607547862804
+14,,{'str_sp': 'survivor cargo pants'},7,4,"[[['pants_army', 1], ['pants_cargo', 1], ['shorts_cargo', 1]], [['kevlar', 1], ['modularvest', 1], ['kevlar_plate', 12]], [['rag', 12]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 4], ['leather_pouch', 2], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 100]]]",6.0,4,6,10,3.0,0.9999802121903528
+0,,{'str': 'AEP suit'},7,5,"[[['cleansuit', 1]], [['duct_tape', 600]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]], [['plastic_sheet', 1]]]",6.0,7,4,32,7.0,0.9999884861217404
+1,,{'str': 'ANBC suit'},7,5,"[[['hazmat_suit', 1]], [['duct_tape', 800]], [['swat_armor', 1], ['kevlar_plate', 48]], [['plastic_sheet', 1]]]",8.0,7,4,32,10.0,0.9999884861217404
+2,,{'str': 'boiled leather armor'},7,7,"[[['water', 10], ['water_clean', 10]], [['wax', 2], ['any_tallow', 8, 'LIST'], ['vinegar', 10], ['pine_bough', 20]], [['salt', 50]], [['armor_larmor', 1]], [['armguard_larmor', 1]]]",3.0,10,10,20,4.0,0.9218745880728922
+3,,{'str': 'chitinous armor'},6,3,"[[['chitin_piece', 36]], [['leather', 36]]]",4.0,4,4,8,2.0,0.9589388235149408
+4,,{'str': 'biosilicified chitin armor'},1,1,"[[['acidchitin_piece', 36]], [['leather', 36]]]",5.0,1,1,2,0,0.422050407130026
+5,,{'str': 'fur body armor'},7,6,"[[['fur', 48]]]",5.0,8,4,12,12.0,0.9218673301433409
+6,,{'str': 'leather body armor'},7,6,"[[['leather', 30], ['fur', 30]]]",5.0,8,8,16,5.0,0.9218673301433409
+7,,{'str': 'plate armor'},6,3,"[[['fur', 20], ['leather', 20]]]",8.0,4,4,8,4.0,0.9589388235149408
+8,,{'str': 'nomad gear'},6,4,"[[['duster', 1]], [['vest', 1], ['tacvest', 1]], [['ragpouch', 1], ['leather_pouch', 1], ['dump_pouch', 1], ['fanny', 1]], [['tool_belt', 1], ['legrig', 1]], [['pants_cargo', 1], ['pants_army', 1]], [['leather', 24]]]",5.0,5,5,10,8.0,0.9605097487586847
+9,,{'str': 'light nomad gear'},5,3,"[[['tunic', 1]], [['shorts_cargo', 1], ['shorts_denim', 1]], [['vest', 1], ['tacvest', 1]], [['ragpouch', 2], ['dump_pouch', 2], ['fanny', 2]], [['tool_belt', 1], ['legrig', 1]], [['rag', 20]]]",4.0,8,0,12,2.0,0.8391145034718988
+10,,{'str': 'plated leather armor'},7,6,"[[['steel_chunk', 6], ['scrap', 18]], [['armor_larmor', 1]], [['armguard_larmor', 1]]]",2.0,0,6,10,5.0,0.9218673301433409
+11,,{'str': 'ornamental plate armor'},6,4,"[[['fur', 16], ['leather', 16]]]",9.0,5,5,10,4.0,0.9212591767357721
+13,,{'str': 'O-yoroi'},5,3,"[[['fur', 28], ['leather', 28]], [['rag', 10]]]",9.0,4,4,8,5.0,0.8793025127710737
+14,,{'str': 'scavenger gear'},6,2,"[[['jacket_army', 1]], [['vest', 1], ['tacvest', 1], ['mbag', 1], ['runner_bag', 1]], [['fanny', 2], ['dump_pouch', 1]], [['tool_belt', 1], ['legrig', 1]], [['pants_army', 1]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",8.0,5,0,8,8.0,0.9830669394949226
+15,,{'str': 'scrap suit'},5,3,"[[['scrap', 170]]]",3.0,0,3,5,4.0,0.8391145034718988
+17,,{'str': 'chainmail hauberk'},6,2,"[[['chainmail_vest', 1]], [['chainmail_arms', 1]], [['chainmail_legs', 1]], [['gambeson', 1]]]",2.0,6,0,9,6.0,0.9516544014407398
+18,,{'str': 'chainmail armor'},6,2,"[[['chainmail_hood', 1]], [['chainmail_vest', 1]], [['chainmail_arms', 1]], [['chainmail_legs', 1]], [['gambeson', 1]]]",3.0,6,0,9,6.0,0.9516544014407398
+19,,{'str': 'faraday chainmail suit'},6,2,"[[['link_sheet', 2], ['chainmail_hood', 1]], [['link_sheet', 7], ['chainmail_vest', 1]], [['link_sheet', 3], ['chainmail_arms', 1]], [['link_sheet', 4], ['chainmail_legs', 1]], [['link_sheet', 2], ['chainmail_hands', 1]], [['link_sheet', 2], ['chainmail_feet', 1]], [['chain_link', 500]], [['wire', 5]], [['rag', 26]]]",7.0,4,0,6,0,0.9626417446613817
+21,,{'str': 'entry suit'},7,5,"[[['nomex', 40]], [['kevlar_plate', 8]], [['duct_tape', 200], ['superglue', 5]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",6.0,5,8,12,6.0,0.9999986802024311
+22,,{'str': 'survivor firesuit'},6,2,"[[['rag', 4]], [['nomex_suit', 1], ['entry_suit', 1], ['nomex', 20]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 200]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",8.0,8,40,10,3.0,0.9626417446613817
+23,,{'str': 'gambeson'},6,4,"[[['rag', 26]]]",4.0,10,0,15,6.0,0.9212591767357721
+25,,{'str': 'heavy survivor suit'},6,3,"[[['rag', 20]], [['leather', 20]], [['steel_chunk', 4], ['scrap', 12]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 300]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",7.0,4,4,8,3.0,0.9984961995624084
+26,,{'str': 'light survivor suit'},6,2,"[[['rag', 30]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 200]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",5.0,4,0,6,3.0,0.9626417446613817
+27,,{'str': 'flame-resistant suit'},6,2,"[[['nomex', 18]]]",6.0,8,40,10,1.0,0.9626417446613817
+31,,{'str': 'survivor suit'},6,3,"[[['rag', 20]], [['leather', 20]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 300]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",6.0,4,4,8,3.0,0.9984961995624084
+34,,{'str': 'winter survivor suit'},7,4,"[[['rag', 10]], [['leather', 20]], [['fur', 20]], [['coat_rain', 1], ['jacket_windbreaker', 1], ['jacket_evac', 1], ['coat_gut', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 300]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 24]]]",6.0,5,2,8,15.0,0.9997033967495939
+35,,{'str': 'XL survivor suit'},6,3,"[[['rag', 30]], [['leather', 40]], [['scrap', 8]], [['coat_rain', 2], ['jacket_windbreaker', 2], ['jacket_evac', 2], ['coat_gut', 2]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 400]], [['kevlar', 2], ['modularvest', 2], ['swat_armor', 2], ['kevlar_plate', 42]]]",6.0,4,4,8,3.0,0.9984961995624084
+36,,{'str': 'XL heavy survivor suit'},6,3,"[[['rag', 30]], [['leather', 40]], [['steel_chunk', 8], ['scrap', 24]], [['coat_rain', 2], ['jacket_windbreaker', 2], ['jacket_evac', 2], ['coat_gut', 2]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 6], ['leather_pouch', 4], ['dump_pouch', 1], ['purse', 2], ['fanny', 2]], [['duct_tape', 400]], [['kevlar', 2], ['modularvest', 2], ['swat_armor', 2], ['kevlar_plate', 48]]]",8.0,4,4,8,3.0,0.9984961995624084
+0,,"{'str': 'bell cuirass', 'str_pl': 'bell cuirasses'}",7,9,"[[['scrap_bronze', 28]]]",5.0,0,6,3,3.0,0.9218749988118261
+1,,"{'str': 'lamellar cuirass', 'str_pl': 'lamellar cuirasses'}",5,3,"[[['cordage_superior', 4, 'LIST']], [['rag', 4]], [['leather', 42], ['fur', 42]]]",3.0,8,0,12,4.0,0.8391145034718988
+2,,{'str_sp': 'lorica segmentata'},6,3,"[[['fur', 12], ['leather', 12]]]",7.0,4,4,8,3.0,0.9192235675809233
+3,,{'str': 'bookplate'},6,8,"[[['paper', 1200]], [['duct_tape', 150]]]",3.0,24,0,12,2.0,0.8437498577544102
+4,,{'str': 'chainmail vest'},5,1,"[[['link_sheet', 7]], [['chain_link', 175]], [['wire', 1]], [['rag', 6]]]",7.0,4,0,6,0,0.9189825631545554
+6,,"{'str': 'cuirass', 'str_pl': 'cuirasses'}",6,3,"[[['fur', 6], ['leather', 6]]]",8.0,4,4,8,4.0,0.9589388235149408
+7,,"{'str': 'scrap cuirass', 'str_pl': 'scrap cuirasses'}",5,3,"[[['scrap', 80]]]",3.0,0,3,5,4.0,0.8391145034718988
+9,,{'str': 'armored leather jacket'},6,4,"[[['jacket_leather', 1], ['jacket_leather_red', 1]], [['scrap', 9]]]",3.0,0,4,8,6.0,0.8825899078777317
+15,,{'str': 'light survivor body armor'},5,1,"[[['rag', 15]], [['coat_rain', 1]], [['tacvest', 1], ['legrig', 1], ['vest', 1], ['tool_belt', 1], ['ragpouch', 2], ['leather_pouch', 2], ['dump_pouch', 1], ['purse', 1], ['fanny', 1]], [['duct_tape', 150]], [['kevlar', 1], ['modularvest', 1], ['swat_armor', 1], ['kevlar_plate', 16]]]",5.0,4,0,6,3.0,0.9189825631545554
+19,,{'str': 'armored leather vest'},6,4,"[[['vest_leather', 1]], [['scrap', 5]]]",3.0,0,4,8,6.0,0.9217322112860099
