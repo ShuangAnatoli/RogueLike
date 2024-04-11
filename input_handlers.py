@@ -514,7 +514,6 @@ class CraftingMenuHandler(AskUserEventHandler):
         self.engine = engine
         player = self.engine.player
 
-
         self.materials_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner',
                   'steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt',
                   'string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece',
@@ -525,25 +524,32 @@ class CraftingMenuHandler(AskUserEventHandler):
         armorData = pd.read_csv("armor.csv")
         weaponData = pd.read_csv("weapon.csv")
 
-        valid_armor_names = []
+        valid_armors = []
         for row in armorData.rows:
+            materials_used = []
+            #Assumes items are craftable; if any material cannot be satisfied, it is not craftable.
             craftable = True
             recipe = row["recipe"]
             for mat_options in recipe:
+                #Assumes materials aren't satisfied; if a requirement is satisfied by any element, add that to the materials used nd continue
                 mat_satisfied = False
                 for mat_tuple in mat_options:
                     material = mat_tuple[0]
                     mat_quantity = mat_tuple[1]
                     for i, mat_name in enumerate(self.materials_list):
                         if mat_name == material:
-                            if player.inventory.materials[i] >= mat_quantity:
+                            if player.inventory.materials[i] >= mat_quantity and mat_satisfied == False:
                                 mat_satisfied = True
+                                
+                                materials_used.append(mat_tuple)
+
                 if mat_satisfied == False:
                     craftable = False
+            #TODO: Ensure only one crafting recipe exists for each item; duplicates can be left in place
             if craftable:
-                valid_armor_names.append(row["name"]["str"])
+                valid_armors.append([row["name"]["str"], materials_used])
 
-        self.valid_armor_names = valid_armor_names
+        self.valid_armors = valid_armors
         
     TITLE = ""
     
@@ -558,7 +564,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         super().on_render(console)
         
 
-        height = len(self.valid_armor_names)
+        height = len(self.valid_armors)
         x = 0
         y = 0
 
@@ -577,66 +583,43 @@ class CraftingMenuHandler(AskUserEventHandler):
 
         console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
 
-        for i, item in enumerate(self.valid_armor_names):
-            item_str = f"({chr(ord('a') + i)}) {item}"
+        for i, item in enumerate(self.valid_armors):
+            #item[0]: Armor name
+            #item[1]: Materials list (each element is [material, quantity])
+            mat_str = ""
+            for i, material in enumerate(item[1]):
+                
+                #last item has "and"
+                if i == len(item[1])-1 and i > 1:
+                    mat_str += " and"
+                mat_str += " "
+                mat_str += str(material[1])
+                mat_str += " "
+                mat_str += material[0]
+                #check for plural
+                if material[1] > 1:
+                    mat_str += "s"
+                #last item has period
+                if i == len(item[1])-1:
+                    mat_str += "."
+                else:
+                    mat_str += ","
+                
+            item_str = f"({chr(ord('a') + i)}) {item[0]}: Requires{mat_str}"
             console.print(x + 1, y + i + 1, item_str)
 
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
        
         player = self.engine.player
-        height = len(self.valid_armor_names)
+        height = len(self.valid_armors)
         player = self.engine.player
         key = event.sym
+        
+        mat_list = self.materials_list
         index = key - tcod.event.K_a
         if 0 <= index <= height:
-            mat_list = self.materials_list
-            if index == 0: 
-                mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
-            elif index == 1: 
-                mat_list = ['steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
-                mat_mult = 3
-                gold_tally = 0
-                for i in range(player.fighter.base_defense):
-                    earnings = random.randint(1,4)
-                    player.inventory.gold += earnings
-                    gold_tally += earnings
-                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
-            elif index == 2: 
-                mat_list = ['string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
-            elif index == 3: 
-                mat_list = ['string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
-            elif index == 4: 
-                mat_list = ['2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
-            elif index == 5:
-                gold_tally = 0
-                for i in range(player.fighter.base_power):
-                    earnings = random.randint(1,6)
-                    player.inventory.gold += earnings
-                    gold_tally += earnings
-                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
-            elif index == 6:
-                if player.inventory.gold > 20:
-                    self.engine.message_log.add_message("Not enough gold.", color.invalid)
-                    return None
-                else:
-                    player.inventory.gold -= 20
-                    mat_mult = 10
-            elif index == 6:
-                mat_mult = 0
-                for i in range(player.fighter.base_defense):
-                    mat_mult += random.randint(1,4)
-            mat_string = ""
-            for i in range(mat_mult):
-                mat_found = random.randint(0,len(mat_list)-1)
-                for j, mat in enumerate(self.materials_list):
-                    if mat_list[mat_found] == mat:
-                        player.inventory.materials[j] += 1
-                if i == mat_mult-1:
-                    mat_string += f"and {mat_list[mat_found]}."
-                else:
-                    mat_string += f"{mat_list[mat_found]} ,"
-            self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
+            armor_print = self.valid_armors[index]
             
             if self.time_left > 0:
                 return actions.TakeStairsAction(player)
