@@ -20,7 +20,7 @@ ranged_path = "C:/Users/r2d2go/Downloads/BN---Primitive-Launcher-0.9.6/data/json
 
 material_df = pd.read_json(material_path)
 
-big_armor_df = pd.DataFrame({'item_name' : []})
+big_armor_df = pd.DataFrame({})
 # big_armor_df["recipe"] = ""
 # big_armor_df["craft_level"] = ""
 # big_armor_df["protection"] = ""
@@ -133,10 +133,10 @@ for armor in targets_armor_list:
 
 
 
-    big_armor_df = big_armor_df._append(armor_item_df[["name", "armor", "mitigation", "recipe", "craft_level", "elec_res", "fire_res", "acid_res", "cold_res", "protection"]].fillna(0))
+    big_armor_df = big_armor_df._append(armor_item_df[["id", "name", "armor", "mitigation", "recipe", "craft_level", "elec_res", "fire_res", "acid_res", "cold_res", "protection"]].fillna(0))
 
         
-big_melee_df = pd.DataFrame({'item_name' : []})
+big_melee_df = pd.DataFrame({})
 big_melee_df["recipe"] = ""
 big_melee_df["craft_level"] = ""
 big_melee_df["attack"] = "0"
@@ -232,7 +232,7 @@ for melee in targets_melee_list:
                 melee_item_df.at[index,"craft_level"] = round((final_dmg_avg+to_hit*4)/8)
             #TODO: base damage on bash/stab/cut
             #Dismemberment has different forms: broken/bleeding/removed
-    big_melee_df = big_melee_df._append(melee_item_df[["name", "attack", "power", "recipe", "craft_level"]]).fillna(0)
+    big_melee_df = big_melee_df._append(melee_item_df[["id", "name", "attack", "power", "recipe", "craft_level"]]).fillna(0)
 
 
 # big_ranged_df = pd.DataFrame({'item_name' : []})
@@ -273,7 +273,7 @@ big_melee_df = big_melee_df[(big_melee_df['power'].ne("0") & big_melee_df['attac
 filepath = pathlib.Path('data/melee.json') 
 big_melee_df.reset_index(inplace=True)
 filepath.parent.mkdir(parents=True, exist_ok=True)  
-big_melee_df.to_json(filepath, orient="index", lines=True)
+big_melee_df.to_json(filepath, orient="records", lines=True)
 
 
 big_armor_df = big_armor_df[(big_armor_df['mitigation'].ne("0") & big_armor_df['armor'].ne("0"))]
@@ -284,10 +284,7 @@ big_armor_df.to_json(filepath, orient="records", lines=True)
 
 with open("final_path.txt", "w") as f:
     for index, melee_item in big_melee_df.iterrows():
-        try:
-            f.write(f"class {melee_item['name']['str'].replace(' ', '_')}(Equippable): \n")
-        except:
-            f.write(f"class {melee_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
+        f.write(f"class {melee_item['id']}(Equippable): \n")    
         f.write(f"\tdef __init__(self) -> None:\n")
         # f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Weapon, 
         #         power_bonus={int(melee_item['power'])}, 
@@ -302,10 +299,7 @@ with open("final_path.txt", "w") as f:
         
 
     for index, armor_item in big_armor_df.iterrows():
-        try:
-            f.write(f"class {armor_item['name']['str'].replace(' ', '_')}(Equippable): \n")
-        except:
-            f.write(f"class {armor_item['name']['str_sp'].replace(' ', '_')}(Equippable): \n")
+        f.write(f"class {armor_item['id']}(Equippable): \n")
         f.write(f"\tdef __init__(self) -> None:\n")
         f.write(f"""\t\tsuper().__init__(equipment_type=EquipmentType.Armor, 
                 defense_bonus = {int(armor_item['mitigation'])}, 

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, Callable, Optional, Tuple, Union
 import os
 import tcod
 
+from entity import Actor, Item
 from actions import Action, BumpAction, PickupAction, WaitAction
 import actions
 import color
@@ -546,7 +547,7 @@ class CraftingMenuHandler(AskUserEventHandler):
                     craftable = False
             #TODO: Ensure only one crafting recipe exists for each item; duplicates can be left in place
             if craftable:
-                valid_armors.append([row["name"]["str"], materials_used])
+                valid_armors.append([row["name"]["str"], materials_used, row["id"]])
         
         self.valid_armors = valid_armors
         
@@ -561,7 +562,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         player = self.engine.player
         
 
-        height = max(len(self.valid_armors)+1, 22)
+        height = min(len(self.valid_armors)+1, 22)
         x = 0
         y = 0
 
@@ -579,7 +580,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         self.TITLE = f"Crafting: {self.time_left} hours left"
 
         console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
-        i = 0
+
         for i, item in enumerate(self.valid_armors):
             #item[0]: Armor name
             #item[1]: Materials list (each element is [material, quantity])
@@ -604,7 +605,7 @@ class CraftingMenuHandler(AskUserEventHandler):
                 
             item_str = f"({chr(ord('a') + i)}) {item[0]}: Requires{mat_str}"
             console.print(x + 1, y + i + 1, item_str)
-        console.print(x+1, y+i+2, "(x) Return to Downtime Menu")
+        console.print(x+1, y+height-2, "(x) Return to Downtime Menu")
 
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
@@ -625,8 +626,10 @@ class CraftingMenuHandler(AskUserEventHandler):
             armor_tuple = self.valid_armors[index]
             
             if index <= total_armors:
-                armor_name = armor_tuple[0]
+                
+                armor_id = armor_tuple[2]
                 materials = armor_tuple[1]
+                armor_name = armor_tuple[0]
                 for material in materials:
                     material_name = material[0]
                     material_quantity = material[1]
@@ -634,8 +637,9 @@ class CraftingMenuHandler(AskUserEventHandler):
                         if material_name == target:
                             player.inventory.materials[i] -= material_quantity
 
-
-                player.inventory.items.append(equippable.Sword())
+                gear_class = getattr(equippable, armor_id)
+                gear = Item(char="/", color=(0, 191, 255), name=f"{armor_name}", equippable=gear_class())
+                player.inventory.items.append(gear)
             
             if index == 23:
                 return DowntimeMenuHandler(self.engine, time_left = self.time_left)
