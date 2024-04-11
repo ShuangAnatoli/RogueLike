@@ -557,11 +557,11 @@ class CraftingMenuHandler(AskUserEventHandler):
         """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
         """
     
+        super().on_render(console)
         
         player = self.engine.player
 
         
-        super().on_render(console)
         
 
         height = len(self.valid_armors)
@@ -633,10 +633,11 @@ class DowntimeMenuHandler(AskUserEventHandler):
     """This handler lets the user select from the downtime menu for the player to select locations to craft with. Sends to stairs currently;
     """
 
-    TITLE = "Downtime"
-    def __init__(self, time_left = 112, location = 4):
+    def __init__(self, engine: Engine, time_left = 112, location = 4):
+        self.TITLE = "Downtime, Hours Left: "+str(time_left)
         self.time_left = time_left
         self.location = location
+        self.engine = engine
     
     def on_render(self, console: tcod.Console) -> None:
         """Creates a downtime menu for the player to select locations to craft with. Sends to stairs currently; TODO: send to crafting menu instead
@@ -746,13 +747,15 @@ class DowntimeMenuHandler(AskUserEventHandler):
                     mat_string += f"and {mat_list[mat_found]}."
                 else:
                     mat_string += f"{mat_list[mat_found]} ,"
-            self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
+            
             newtime = self.time_left-actioncost-travelcost
+
+            if index == 8: #Corresponds to Crafting
+                return CraftingMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
+
+            self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
             return DowntimeMenuHandler(self.engine, time_left = newtime, location = index)
         
-        elif index == 8: #I think we need this to loop keydown correctly; we can't return DonwtimeMenuHandler at the outer level
-            return DowntimeMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
-
         
         return super().ev_keydown(event)
 
