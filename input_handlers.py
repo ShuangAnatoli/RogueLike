@@ -604,7 +604,6 @@ class CraftingMenuHandler(AskUserEventHandler):
                     mat_str += ","
                 
             item_str = f"({chr(ord('a') + item_index)}) {item[0]}: Requires{mat_str}"
-            print(item_str)
             console.print(x + 1, y + item_index + 1, item_str)
         console.print(x+1, y+height-1, "(x) Return to Downtime Menu")
 

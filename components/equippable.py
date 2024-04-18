@@ -56,7 +56,7 @@ class ChainMail(Equippable):
 
 class armguard_chitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 4,
@@ -64,7 +64,7 @@ class armguard_chitin(Equippable):
 
 class armguard_hard(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 2, 
                 armor_bonus = 4,
                 craft_level = 4,
@@ -72,7 +72,7 @@ class armguard_hard(Equippable):
 
 class armguard_larmor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 6, 
                 armor_bonus = 7,
                 craft_level = 3,
@@ -80,7 +80,7 @@ class armguard_larmor(Equippable):
 
 class armguard_lightplate(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 7,
@@ -88,7 +88,7 @@ class armguard_lightplate(Equippable):
 
 class armguard_metal(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 8, 
                 armor_bonus = 6,
                 craft_level = 4,
@@ -96,7 +96,7 @@ class armguard_metal(Equippable):
 
 class armguard_paper(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 2, 
                 armor_bonus = 5,
                 craft_level = 0,
@@ -104,7 +104,7 @@ class armguard_paper(Equippable):
 
 class armguard_scrap(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 3,
@@ -112,7 +112,7 @@ class armguard_scrap(Equippable):
 
 class armguard_soft(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 3,
@@ -120,7 +120,7 @@ class armguard_soft(Equippable):
 
 class chainmail_arms(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 7,
@@ -128,7 +128,7 @@ class chainmail_arms(Equippable):
 
 class elbow_pads(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 4,
@@ -136,7 +136,7 @@ class elbow_pads(Equippable):
 
 class vambrace_larmor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.ARMS, 
                 defense_bonus = 4, 
                 armor_bonus = 3,
                 craft_level = 2,
@@ -144,7 +144,7 @@ class vambrace_larmor(Equippable):
 
 class bastsandals(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 2,
@@ -152,7 +152,7 @@ class bastsandals(Equippable):
 
 class boots(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 2,
@@ -160,7 +160,7 @@ class boots(Equippable):
 
 class boots_chitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 4,
@@ -168,7 +168,7 @@ class boots_chitin(Equippable):
 
 class boots_acidchitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 5,
@@ -176,7 +176,7 @@ class boots_acidchitin(Equippable):
 
 class boots_fsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 8,
@@ -184,7 +184,7 @@ class boots_fsurvivor(Equippable):
 
 class boots_fur(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 2, 
                 armor_bonus = 5,
                 craft_level = 2,
@@ -192,7 +192,7 @@ class boots_fur(Equippable):
 
 class boots_h20survivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 7,
@@ -200,7 +200,7 @@ class boots_h20survivor(Equippable):
 
 class boots_hsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 14, 
                 armor_bonus = 10,
                 craft_level = 7,
@@ -208,7 +208,7 @@ class boots_hsurvivor(Equippable):
 
 class boots_larmor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 6, 
                 armor_bonus = 7,
                 craft_level = 2,
@@ -216,7 +216,7 @@ class boots_larmor(Equippable):
 
 class boots_lsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 5,
@@ -224,7 +224,7 @@ class boots_lsurvivor(Equippable):
 
 class boots_plate(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 5,
@@ -232,7 +232,7 @@ class boots_plate(Equippable):
 
 class boots_scrap(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 3,
@@ -240,7 +240,7 @@ class boots_scrap(Equippable):
 
 class boots_survivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 4, 
                 armor_bonus = 7,
                 craft_level = 6,
@@ -248,7 +248,7 @@ class boots_survivor(Equippable):
 
 class boots_winter(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 4, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -256,7 +256,7 @@ class boots_winter(Equippable):
 
 class boots_wsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 4, 
                 armor_bonus = 7,
                 craft_level = 7,
@@ -264,7 +264,7 @@ class boots_wsurvivor(Equippable):
 
 class boots_xlsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -272,7 +272,7 @@ class boots_xlsurvivor(Equippable):
 
 class clogs(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 8, 
                 armor_bonus = 7,
                 craft_level = 3,
@@ -280,7 +280,7 @@ class clogs(Equippable):
 
 class footrags(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 2,
                 craft_level = 0,
@@ -288,7 +288,7 @@ class footrags(Equippable):
 
 class footrags_fur(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 0,
@@ -296,7 +296,7 @@ class footrags_fur(Equippable):
 
 class footrags_leather(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 0,
@@ -304,7 +304,7 @@ class footrags_leather(Equippable):
 
 class footrags_wool(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 2,
                 craft_level = 0,
@@ -312,7 +312,7 @@ class footrags_wool(Equippable):
 
 class geta(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 1,
@@ -320,7 +320,7 @@ class geta(Equippable):
 
 class leathersandals(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 0,
                 craft_level = 1,
@@ -328,7 +328,7 @@ class leathersandals(Equippable):
 
 class mocassins(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 2,
                 craft_level = 1,
@@ -336,7 +336,7 @@ class mocassins(Equippable):
 
 class shoes_birchbark(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 2, 
                 armor_bonus = 2,
                 craft_level = 2,
@@ -344,7 +344,7 @@ class shoes_birchbark(Equippable):
 
 class straw_sandals(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 1,
@@ -352,7 +352,7 @@ class straw_sandals(Equippable):
 
 class swim_fins(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 4,
@@ -360,7 +360,7 @@ class swim_fins(Equippable):
 
 class wetsuit_booties(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 4,
@@ -368,7 +368,7 @@ class wetsuit_booties(Equippable):
 
 class chainmail_feet(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 7,
@@ -376,7 +376,7 @@ class chainmail_feet(Equippable):
 
 class nomex_socks(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -384,7 +384,7 @@ class nomex_socks(Equippable):
 
 class socks(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 0,
@@ -392,7 +392,7 @@ class socks(Equippable):
 
 class socks_ankle(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 0,
@@ -400,7 +400,7 @@ class socks_ankle(Equippable):
 
 class socks_bag(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 0,
@@ -408,7 +408,7 @@ class socks_bag(Equippable):
 
 class socks_wool(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 1,
@@ -416,7 +416,7 @@ class socks_wool(Equippable):
 
 class stockings(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 1,
@@ -424,7 +424,7 @@ class stockings(Equippable):
 
 class tabi_dress(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.FEET, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 1,
@@ -432,7 +432,7 @@ class tabi_dress(Equippable):
 
 class chainmail_hands(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 7,
@@ -440,7 +440,7 @@ class chainmail_hands(Equippable):
 
 class gauntlets_chitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 4,
@@ -448,7 +448,7 @@ class gauntlets_chitin(Equippable):
 
 class gauntlets_acidchitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 5,
@@ -456,7 +456,7 @@ class gauntlets_acidchitin(Equippable):
 
 class gauntlets_larmor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 5, 
                 armor_bonus = 4,
                 craft_level = 2,
@@ -464,7 +464,7 @@ class gauntlets_larmor(Equippable):
 
 class gloves_bag(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 3,
                 craft_level = 0,
@@ -472,7 +472,7 @@ class gloves_bag(Equippable):
 
 class gloves_fingerless(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 2,
                 craft_level = 0,
@@ -480,7 +480,7 @@ class gloves_fingerless(Equippable):
 
 class gloves_fingerless_mod(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 1,
@@ -488,7 +488,7 @@ class gloves_fingerless_mod(Equippable):
 
 class gloves_fsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 8,
@@ -496,7 +496,7 @@ class gloves_fsurvivor(Equippable):
 
 class gloves_fur(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 4, 
                 armor_bonus = 6,
                 craft_level = 2,
@@ -504,7 +504,7 @@ class gloves_fur(Equippable):
 
 class gloves_hsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 9, 
                 armor_bonus = 8,
                 craft_level = 7,
@@ -512,7 +512,7 @@ class gloves_hsurvivor(Equippable):
 
 class gloves_leather(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 2,
@@ -520,7 +520,7 @@ class gloves_leather(Equippable):
 
 class gloves_light(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 1,
@@ -528,7 +528,7 @@ class gloves_light(Equippable):
 
 class gloves_liner(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 4,
                 craft_level = 1,
@@ -536,7 +536,7 @@ class gloves_liner(Equippable):
 
 class gloves_lsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 5,
@@ -544,7 +544,7 @@ class gloves_lsurvivor(Equippable):
 
 class gloves_survivor_fingerless(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 4,
                 craft_level = 0,
@@ -552,7 +552,7 @@ class gloves_survivor_fingerless(Equippable):
 
 class gloves_plate(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -560,7 +560,7 @@ class gloves_plate(Equippable):
 
 class gloves_survivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -568,7 +568,7 @@ class gloves_survivor(Equippable):
 
 class gloves_wool(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 1,
@@ -576,7 +576,7 @@ class gloves_wool(Equippable):
 
 class gloves_work(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 2,
@@ -584,7 +584,7 @@ class gloves_work(Equippable):
 
 class gloves_wraps(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 0,
@@ -592,7 +592,7 @@ class gloves_wraps(Equippable):
 
 class gloves_wraps_fur(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 2,
                 craft_level = 0,
@@ -600,7 +600,7 @@ class gloves_wraps_fur(Equippable):
 
 class gloves_wraps_leather(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 2,
                 craft_level = 0,
@@ -608,7 +608,7 @@ class gloves_wraps_leather(Equippable):
 
 class gloves_wraps_wool(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 0,
@@ -616,7 +616,7 @@ class gloves_wraps_wool(Equippable):
 
 class gloves_wsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 7,
@@ -624,7 +624,7 @@ class gloves_wsurvivor(Equippable):
 
 class gloves_xlsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -632,7 +632,7 @@ class gloves_xlsurvivor(Equippable):
 
 class mittens(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 1,
@@ -640,7 +640,7 @@ class mittens(Equippable):
 
 class nomex_gloves(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -648,7 +648,7 @@ class nomex_gloves(Equippable):
 
 class sockmitts(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HANDS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 0,
@@ -656,7 +656,7 @@ class sockmitts(Equippable):
 
 class pot_helmet(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 5, 
                 armor_bonus = 4,
                 craft_level = 0,
@@ -664,7 +664,7 @@ class pot_helmet(Equippable):
 
 class helmet_barbute(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -672,7 +672,7 @@ class helmet_barbute(Equippable):
 
 class helmet_chitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 4,
@@ -680,7 +680,7 @@ class helmet_chitin(Equippable):
 
 class helmet_conical(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 2, 
                 armor_bonus = 5,
                 craft_level = 6,
@@ -688,7 +688,7 @@ class helmet_conical(Equippable):
 
 class helmet_acidchitin(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 5,
@@ -696,7 +696,7 @@ class helmet_acidchitin(Equippable):
 
 class helmet_galea(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 7,
@@ -704,7 +704,7 @@ class helmet_galea(Equippable):
 
 class helmet_kabuto(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 9,
@@ -712,7 +712,7 @@ class helmet_kabuto(Equippable):
 
 class helmet_larmor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 6, 
                 armor_bonus = 6,
                 craft_level = 4,
@@ -720,7 +720,7 @@ class helmet_larmor(Equippable):
 
 class helmet_nasal(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 5,
@@ -728,7 +728,7 @@ class helmet_nasal(Equippable):
 
 class helmet_nomad(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 2, 
                 armor_bonus = 6,
                 craft_level = 5,
@@ -736,7 +736,7 @@ class helmet_nomad(Equippable):
 
 class helmet_plate(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 4, 
                 armor_bonus = 7,
                 craft_level = 7,
@@ -744,7 +744,7 @@ class helmet_plate(Equippable):
 
 class helmet_scavenger(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 8,
@@ -752,7 +752,7 @@ class helmet_scavenger(Equippable):
 
 class helmet_scrap(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 3,
@@ -760,7 +760,7 @@ class helmet_scrap(Equippable):
 
 class helmet_survivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 4, 
                 armor_bonus = 7,
                 craft_level = 6,
@@ -768,7 +768,7 @@ class helmet_survivor(Equippable):
 
 class helmet_xlsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 6,
@@ -776,7 +776,7 @@ class helmet_xlsurvivor(Equippable):
 
 class helmet_hsurvivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 14, 
                 armor_bonus = 10,
                 craft_level = 7,
@@ -784,7 +784,7 @@ class helmet_hsurvivor(Equippable):
 
 class helmet_corinthian(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 9, 
                 armor_bonus = 7,
                 craft_level = 6,
@@ -792,7 +792,7 @@ class helmet_corinthian(Equippable):
 
 class pot_xlhelmet(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.HEAD, 
                 defense_bonus = 7, 
                 armor_bonus = 4,
                 craft_level = 0,
@@ -800,7 +800,7 @@ class pot_xlhelmet(Equippable):
 
 class chainmail_legs(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 7,
@@ -808,7 +808,7 @@ class chainmail_legs(Equippable):
 
 class chaps_leather(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 4, 
                 armor_bonus = 4,
                 craft_level = 4,
@@ -816,7 +816,7 @@ class chaps_leather(Equippable):
 
 class knee_pads(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 1, 
                 armor_bonus = 1,
                 craft_level = 4,
@@ -824,7 +824,7 @@ class knee_pads(Equippable):
 
 class legguard_bronze(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 3, 
                 armor_bonus = 4,
                 craft_level = 5,
@@ -832,7 +832,7 @@ class legguard_bronze(Equippable):
 
 class legguard_hard(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 2, 
                 armor_bonus = 4,
                 craft_level = 3,
@@ -840,7 +840,7 @@ class legguard_hard(Equippable):
 
 class legguard_lightplate(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 3, 
                 armor_bonus = 6,
                 craft_level = 7,
@@ -848,7 +848,7 @@ class legguard_lightplate(Equippable):
 
 class legguard_metal(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 3, 
                 armor_bonus = 4,
                 craft_level = 5,
@@ -856,7 +856,7 @@ class legguard_metal(Equippable):
 
 class legguard_paper(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 2, 
                 armor_bonus = 5,
                 craft_level = 0,
@@ -864,7 +864,7 @@ class legguard_paper(Equippable):
 
 class legguard_scrap(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 3, 
                 armor_bonus = 5,
                 craft_level = 3,
@@ -872,7 +872,7 @@ class legguard_scrap(Equippable):
 
 class lsurvivor_pants(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 1, 
                 armor_bonus = 5,
                 craft_level = 5,
@@ -880,7 +880,7 @@ class lsurvivor_pants(Equippable):
 
 class pants_survivor(Equippable): 
 	def __init__(self) -> None:
-		super().__init__(equipment_type=EquipmentType.ARMOR, 
+		super().__init__(equipment_type=EquipmentType.LEGS, 
                 defense_bonus = 4, 
                 armor_bonus = 7,
                 craft_level = 6,

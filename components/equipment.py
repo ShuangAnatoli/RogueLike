@@ -99,6 +99,18 @@ class Equipment(BaseComponent):
     def toggle_equip(self, equippable_item: Item, add_message: bool = True) -> None:
         if equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.WEAPON:
             slot = "weapon"
+        elif equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.FEET:
+            slot = "feet"
+        elif equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.ARMS:
+            slot = "arms"
+        elif equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.HANDS:
+            slot = "hands"
+        elif equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.HANDS:
+            slot = "hands"
+        elif equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.HEAD:
+            slot = "head"
+        elif equippable_item.equippable and equippable_item.equippable.equipment_type == EquipmentType.LEGS:
+            slot = "legs"
         else:
             slot = "armor"
 
