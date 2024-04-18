@@ -547,7 +547,7 @@ class CraftingMenuHandler(AskUserEventHandler):
                     craftable = False
             #TODO: Ensure only one crafting recipe exists for each item; duplicates can be left in place
             if craftable:
-                valid_armors.append([row["name"]["str"], materials_used, row["id"]])
+                valid_armors.append([row["name"]["str"], materials_used, row["id"], row["craft_level"]])
         
         self.valid_armors = valid_armors
         
@@ -562,7 +562,7 @@ class CraftingMenuHandler(AskUserEventHandler):
         player = self.engine.player
         
 
-        height = min(len(self.valid_armors)+1, 22)
+        height = min(len(self.valid_armors)+2, 22)
         x = 0
         y = 0
 
@@ -581,14 +581,14 @@ class CraftingMenuHandler(AskUserEventHandler):
 
         console.print(x + 1, y, f" {self.TITLE} ", fg=(0, 0, 0), bg=(255, 255, 255))
 
-        for i, item in enumerate(self.valid_armors):
+        for item_index, item in enumerate(self.valid_armors):
             #item[0]: Armor name
             #item[1]: Materials list (each element is [material, quantity])
             mat_str = ""
-            for i, material in enumerate(item[1]):
+            for j, material in enumerate(item[1]):
                 
                 #last item has "and"
-                if i == len(item[1])-1 and i > 1:
+                if j == len(item[1])-1 and j > 1:
                     mat_str += " and"
                 mat_str += " "
                 mat_str += str(material[1])
@@ -598,14 +598,15 @@ class CraftingMenuHandler(AskUserEventHandler):
                 if material[1] > 1:
                     mat_str += "s"
                 #last item has period
-                if i == len(item[1])-1:
+                if j == len(item[1])-1:
                     mat_str += "."
                 else:
                     mat_str += ","
                 
-            item_str = f"({chr(ord('a') + i)}) {item[0]}: Requires{mat_str}"
-            console.print(x + 1, y + i + 1, item_str)
-        console.print(x+1, y+height-2, "(x) Return to Downtime Menu")
+            item_str = f"({chr(ord('a') + item_index)}) {item[0]}: Requires{mat_str}"
+            print(item_str)
+            console.print(x + 1, y + item_index + 1, item_str)
+        console.print(x+1, y+height-1, "(x) Return to Downtime Menu")
 
 
     def ev_keydown(self, event: tcod.event.KeyDown) -> Optional[ActionOrHandler]:
@@ -619,18 +620,27 @@ class CraftingMenuHandler(AskUserEventHandler):
         total_armors = len(self.valid_armors)
         key = event.sym
         
-        mat_list = self.materials_list
         index = key - tcod.event.K_a
-        timecost = 1
+        armor_list = []
+        time_cost=0
         if index < 23:
-            armor_tuple = self.valid_armors[index]
+            armor_list = self.valid_armors[index]
+            time_cost = armor_list[3]**2 #difficulty squared
         if 0 <= index <= total_armors or index == 23:
             
-            if index <= total_armors:
+            if self.time_left < 0:
                 
-                armor_id = armor_tuple[2]
-                materials = armor_tuple[1]
-                armor_name = armor_tuple[0]
+                self.engine.message_log.add_message(f"You ran out of time!")
+                return actions.TakeStairsAction(player)
+            
+            if index == 23:
+                return DowntimeMenuHandler(self.engine, time_left = self.time_left)
+            
+            if index <= total_armors:
+                print(armor_list)
+                armor_id = armor_list[2]
+                materials = armor_list[1]
+                armor_name = armor_list[0]
                 for material in materials:
                     material_name = material[0]
                     material_quantity = material[1]
@@ -641,15 +651,10 @@ class CraftingMenuHandler(AskUserEventHandler):
                 gear_class = getattr(equippable, armor_id)
                 gear = Item(char="/", color=(0, 191, 255), name=f"{armor_name}", equippable=gear_class())
                 player.inventory.items.append(gear)
-            
-            if index == 23:
-                return DowntimeMenuHandler(self.engine, time_left = self.time_left)
-            
-            if self.time_left < 0:
-                return actions.TakeStairsAction(player)
+                return CraftingMenuHandler(self.engine, time_left = self.time_left-time_cost)
             
             else:
-                return CraftingMenuHandler(self.engine, time_left = self.time_left-timecost)
+                return CraftingMenuHandler(self.engine, time_left = self.time_left)
 
                 
         else:
@@ -719,79 +724,81 @@ class DowntimeMenuHandler(AskUserEventHandler):
         
         
         if 0 <= index <= 8 or index == 23:
-            
+
             travelcost = abs(self.location//2-index//2)
-            actionarray = [2,2,4,1,2,1,4,1,0,0]
-            actioncost = actionarray[index]
-            if actioncost+travelcost > self.time_left:
-                self.engine.message_log.add_message(f"You don't have enough time; pick something else, or try returning to the arena", color.red)
-                self.engine.message_log.add_message(f"Travel time: {travelcost}, Action time: {actioncost}, Time left: {self.time_left}", color.red)
-                
-            mat_list = materials_list
-            
+                 
             if index == 23:
-                if travelcost+actioncost > self.time_left:
+                if travelcost > self.time_left:
                     damage = 4-self.location//2+actioncost-self.time_left
                     if damage > 0:
                         self.engine.message_log.add_message(f"You didn't have enough time, and took {damage} damage sprinting back to the arena!", color.red)
                         player.hp -= damage
                 return actions.TakeStairsAction(player)
+            else:
+                actionarray = [2,2,4,1,2,1,4,1,0,0]
+                actioncost = actionarray[index]
+                if actioncost+travelcost > self.time_left:
+                    self.engine.message_log.add_message(f"You don't have enough time; pick something else, or try returning to the arena", color.red)
+                    self.engine.message_log.add_message(f"Travel time: {travelcost}, Action time: {actioncost}, Time left: {self.time_left}", color.red)
+                    
+                mat_list = materials_list
             
-            if index == 8: #Corresponds to Crafting
-                return CraftingMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
-            if index == 0:
-                mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
-            elif index == 1: 
-                mat_list = ['steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
-                mat_mult = 3
-                gold_tally = 0
-                for i in range(player.fighter.base_defense):
-                    earnings = random.randint(1,4)
-                    player.inventory.gold += earnings
-                    gold_tally += earnings
-                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
-            elif index == 2: 
-                mat_list = ['string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
-            elif index == 3: 
-                mat_list = ['string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
-            elif index == 4: 
-                mat_list = ['2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
-            elif index == 5:
-                gold_tally = 0
-                for i in range(player.fighter.base_power):
-                    earnings = random.randint(1,6)
-                    player.inventory.gold += earnings
-                    gold_tally += earnings
-                self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
-            elif index == 6:
-                if player.inventory.gold > 20:
-                    self.engine.message_log.add_message("Not enough gold.", color.invalid)
-                    return None
-                else:
-                    player.inventory.gold -= 20
-                    mat_mult = 10
-            elif index == 7:
-                mat_mult = 0
-                for i in range(player.fighter.base_defense):
-                    mat_mult += random.randint(1,4)
-            
-            mat_string = ""
-            for i in range(mat_mult):
-                mat_found = random.randint(0,len(mat_list)-1)
-                for j, mat in enumerate(materials_list):
-                    if mat_list[mat_found] == mat:
-                        player.inventory.materials[j] += 1
-                if i == mat_mult-1:
-                    mat_string += f"and {mat_list[mat_found]}."
-                else:
-                    mat_string += f"{mat_list[mat_found]} ,"
-            
-            newtime = self.time_left-actioncost-travelcost
+                
+                if index == 8: #Corresponds to Crafting
+                    return CraftingMenuHandler(self.engine, time_left = self.time_left-actioncost-travelcost, location = index)
+                if index == 0:
+                    mat_list = ['nomex_socks', 'boots_combat', 'boots_steel', 'boots_bunker', 'boots_hiking', 'boots', 'felt_patch', 'bag_plastic', 'hat_ball', 'hat_boonie', 'glasses_safety', 'glasses_bal', 'mask_filter', 'goggles_ski', 'helmet_liner']
+                elif index == 1: 
+                    mat_list = ['steel', 'steel', 'copper_scrap_equivalent', 'steel', 'nail', 'scrap_bronze', 'medical_tape', 'superglue',  'cooking_oil', 'lamp_oil', 'motor_oil', 'water', 'water_clean', 'vinegar', 'salt']
+                    mat_mult = 3
+                    gold_tally = 0
+                    for i in range(player.fighter.base_defense):
+                        earnings = random.randint(1,4)
+                        player.inventory.gold += earnings
+                        gold_tally += earnings
+                    self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
+                elif index == 2: 
+                    mat_list = ['string', 'string', 'any_tallow', 'wax', 'leather', 'chitin_piece', 'fur', 'cured_pelt', 'cured_hide', 'acidchitin_piece']
+                elif index == 3: 
+                    mat_list = ['string', 'string', 'cordage_short', 'birchbark', 'straw_pile', 'cordage_superior', 'rock', 'sword_wood', 'pointy_stick', 'long_pole', 'log', 'stick_long', 'cordage' ]
+                elif index == 4: 
+                    mat_list = ['2x4', 'rag', 'string', 'string', 'neoprene', 'plastic_chunk', 'fur','sheet_metal_small', 'paper', 'duct_tape', 'scrap', 'link_sheet', 'chain_link', 'wire', 'filament', 'pipe', 'rebar', 'spike']
+                elif index == 5:
+                    gold_tally = 0
+                    for i in range(player.fighter.base_power):
+                        earnings = random.randint(1,6)
+                        player.inventory.gold += earnings
+                        gold_tally += earnings
+                    self.engine.message_log.add_message(f"You earned {gold_tally} gold.", color.gold)
+                elif index == 6:
+                    if player.inventory.gold < 20:
+                        self.engine.message_log.add_message("Not enough gold.", color.invalid)
+                        return None
+                    else:
+                        player.inventory.gold -= 20
+                        mat_mult = 10
+                elif index == 7:
+                    mat_mult = 0
+                    for i in range(player.fighter.base_defense):
+                        mat_mult += random.randint(1,4)
+                
+                mat_string = ""
+                for i in range(mat_mult):
+                    mat_found = random.randint(0,len(mat_list)-1)
+                    for j, mat in enumerate(materials_list):
+                        if mat_list[mat_found] == mat:
+                            player.inventory.materials[j] += 1
+                    if i == mat_mult-1:
+                        mat_string += f"and {mat_list[mat_found]}."
+                    else:
+                        mat_string += f"{mat_list[mat_found]} ,"
+                
+                newtime = self.time_left-actioncost-travelcost
 
 
-            self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
-            return DowntimeMenuHandler(self.engine, time_left = newtime, location = index)
-            
+                self.engine.message_log.add_message(f"You got: "+mat_string, color.gold)
+                return DowntimeMenuHandler(self.engine, time_left = newtime, location = index)
+                
 
         else:
             self.engine.message_log.add_message("Invalid entry.", color.invalid)
